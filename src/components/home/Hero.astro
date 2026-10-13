@@ -1,7 +1,9 @@
 ---
 import { Image } from 'astro:assets';
 import logo from '../../assets/logo.png';
+import Icon from '../Icon.astro';
 import { site } from '../../config/site';
+import { laeringsrum } from '../../data/content';
 ---
 
 <!-- Navy hero: the logo's own background is navy-900, so it blends into the section. -->
@@ -15,7 +17,7 @@ import { site } from '../../config/site';
         Psykologi for fællesskaber <span class="text-ice-300">under pres</span>
       </h1>
       <p class="mt-6 text-base text-sand-200 sm:text-lg">
-        Oplæg og workshops for kollega- og ledergrupper om mennesket på arbejdspladsen.
+        Oplæg og workshops for kollega- og ledergrupper om mennesket på arbejdspladsen. Gennem et vidensrum, et praksisrum og et refleksionsrum bliver I klogere på jeres samspil – og står stærkere sammen.
       </p>
     </div>
 
@@ -30,5 +32,19 @@ import { site } from '../../config/site';
         class="h-auto w-full"
       />
     </div>
+
+    <ul class="grid gap-4 md:col-span-2 md:grid-cols-3" aria-label="Workshoppens tre læringsrum">
+      {laeringsrum.map((r) => (
+        <li class="flex gap-4 bg-navy-800 p-5 hyphens-auto break-words md:flex-col md:gap-3 lg:flex-row lg:gap-4">
+          <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-navy-900 text-ice-300">
+            <Icon path={r.icon} class="h-5 w-5" />
+          </span>
+          <span>
+            <span class="block font-semibold text-white">{r.title}</span>
+            <span class="mt-1 block text-sm text-sand-200">{r.text}</span>
+          </span>
+        </li>
+      ))}
+    </ul>
   </div>
 </section>

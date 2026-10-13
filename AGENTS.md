@@ -36,9 +36,10 @@ Guidance for AI coding agents (Claude and others) working in this repository.
 - Hjernevaerket is a one-person business run by **Rikke Gundorff, psykolog**. Do not use the word "autoriseret".
 - Offers **oplæg (talks) and workshops** for **kollegagrupper and ledergrupper** — not individual therapy or counselling.
 - The talks are about **"mennesket på arbejdspladsen"** (the human being at work), from a social-psychological / evolutionary perspective. Avoid leading with words like *hierarkier*, *magtkampe* or *rangorden* — they read as negative. Prefer samarbejde, roller, sammenhold, fællesskab, motivation.
-- **The site is a single, short landing page** (`src/pages/index.astro`): hero → three boxes side by side (one per specialisation, a photo + a couple of sentences each) → former client band → "Om mig" (Rikke's experience) → e-mail contact. Keep text to a minimum. Do not add sub-pages, long sections or extra navigation unless explicitly asked.
+- **The site is a single, short landing page** (`src/pages/index.astro`): hero (with the workshop's three learning spaces) → three boxes side by side (one per specialisation, a photo + a couple of sentences each) → former client band → "Om mig" (Rikke's experience) → e-mail contact. Keep text to a minimum. Do not add sub-pages, long sections or extra navigation unless explicitly asked.
 - **Three specialisations, which must always be clearly visible:** brandvæsen, pædagogiske botilbud, frivillige organisationer. Rikke's background is shown in the "Om mig" section, not in the boxes: 3 years as operational firefighter; broad experience from pædagogiske tilbud in Aalborg Kommune; board member of a voluntary organisation.
 - Copy is written in the **first person** – Rikke's own voice ("jeg", "mig").
+- **Workshops** are built on three learning spaces, shown briefly in the hero (`laeringsrum` in `src/data/content.ts`): **Vidensrum** (theory and models), **Praksisrum** (concrete tools and methods, trained together) and **Refleksionsrum** (reflection and sharing experience, linking to everyday work). Keep the tone positive: standing stronger together and understanding the dynamics of working together (samspilsdynamikker).
 - Do not invent facts (prices, durations, clients, testimonials, credentials). Leave such details out until provided.
 - Provided facts (in `src/config/site.ts`): CVR-nr. **45348180** and autorisations-ID **0HK46** (both shown in the footer), and former client **Beredskab Øst** (highlighted in a band under the three boxes). Show client names as text only — do not use their logos without permission.
 - The specialisation texts and the "Om mig" experience list live in `src/data/content.ts`; name, title, owner, e-mail, CVR, authorisation ID and clients in `src/config/site.ts`.
@@ -91,7 +92,7 @@ public/                       Static files copied as-is (favicons, share image, 
 src/assets/                   Logo and other images processed by Astro
 src/assets/images/            Downscaled photos produced by `npm run images` (committed)
 src/config/site.ts            Site name, owner, e-mail, url() helper
-src/data/content.ts           The three specialisation boxes and the "Om mig" experience list
+src/data/content.ts           The three specialisation boxes, the "Om mig" experience list and the workshop's three learning spaces
 src/layouts/Layout.astro      Page shell (head/meta, header, footer)
 src/components/               Header, Footer, Logo, Icon (line icon from a path), CtaBand (#kontakt, e-mail)
 src/components/home/          Landing page sections: Hero, Specialer (the three boxes), OmMig
