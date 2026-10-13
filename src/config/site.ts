@@ -9,6 +9,10 @@ export const site = {
   owner: 'Rikke Gundorff',
   ownerTitle: 'Psykolog',
   email: 'kontakt@hjernevaerket.dk',
+  cvr: '45348180',
+  autorisationsId: '0HK46',
+  /** Former clients highlighted on the page (provided by Rikke). */
+  kunder: ['Beredskab Øst'],
 };
 
 /** Prefix an internal path with the site's base path (needed on GitHub Pages). */

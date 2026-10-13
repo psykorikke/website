@@ -36,11 +36,13 @@ Guidance for AI coding agents (Claude and others) working in this repository.
 - Hjernevaerket is a one-person business run by **Rikke Gundorff, psykolog**. Do not use the word "autoriseret".
 - Offers **oplæg (talks) and workshops** for **kollegagrupper and ledergrupper** — not individual therapy or counselling.
 - The talks are about **"mennesket på arbejdspladsen"** (the human being at work), from a social-psychological / evolutionary perspective. Avoid leading with words like *hierarkier*, *magtkampe* or *rangorden* — they read as negative. Prefer samarbejde, roller, sammenhold, fællesskab, motivation.
-- **The site is a single, short landing page** (`src/pages/index.astro`): hero → three boxes (one per specialisation, a couple of sentences each) → "Om mig" (Rikke's experience) → e-mail contact. Keep text to a minimum. Do not add sub-pages, long sections or extra navigation unless explicitly asked.
+- **The site is a single, short landing page** (`src/pages/index.astro`): hero → three boxes side by side (one per specialisation, a photo + a couple of sentences each) → former client band → "Om mig" (Rikke's experience) → e-mail contact. Keep text to a minimum. Do not add sub-pages, long sections or extra navigation unless explicitly asked.
 - **Three specialisations, which must always be clearly visible:** brandvæsen, pædagogiske botilbud, frivillige organisationer. Rikke's background is shown in the "Om mig" section, not in the boxes: 3 years as operational firefighter; broad experience from pædagogiske tilbud in Aalborg Kommune; board member of a voluntary organisation.
 - Copy is written in the **first person** – Rikke's own voice ("jeg", "mig").
 - Do not invent facts (prices, durations, clients, testimonials, credentials). Leave such details out until provided.
-- The specialisation texts and the "Om mig" experience list live in `src/data/content.ts`; name, title, owner and e-mail in `src/config/site.ts`.
+- Provided facts (in `src/config/site.ts`): CVR-nr. **45348180** and autorisations-ID **0HK46** (both shown in the footer), and former client **Beredskab Øst** (highlighted in a band under the three boxes). Show client names as text only — do not use their logos without permission.
+- The specialisation texts and the "Om mig" experience list live in `src/data/content.ts`; name, title, owner, e-mail, CVR, authorisation ID and clients in `src/config/site.ts`.
+- **Box photos:** one sector-specific photo per box, file name = the box's `slug`: `src/assets/images/specialer/brandvaesen.jpg`, `botilbud.jpg`, `frivillige.jpg` (prepare with `npm run images -- --max 1600` from `images-originals/specialer/`). They are picked up automatically; a missing photo falls back to a tinted panel with the icon. Only use photos Rikke owns or that have a licence allowing commercial use.
 
 ## Language
 
@@ -78,6 +80,7 @@ The site must work well on **mobile phones, tablets and desktop**.
   - tap targets (links, buttons, menu toggles) at least ~32 px high on mobile, with spacing between them;
   - body text at least 15 px; headings scale down on small screens;
   - header (logo + Kontakt button) fits on one line at 320 px.
+  - the three boxes stand side by side from 640 px (`sm`) and stack on phones.
 - Images must be responsive (`<Image>` with `sizes`, see *Images*) — never fixed pixel widths wider than a phone screen.
 
 ## Project structure
