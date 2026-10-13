@@ -31,6 +31,16 @@ Guidance for AI coding agents (Claude and others) working in this repository.
   - Still build internal links with `url()` from `src/config/site.ts` so a base path can be reintroduced in one place if hosting changes.
 - `scripts/check-site.mjs` (`npm run check`) verifies every internal link and asset. CI runs it on `dist/` before upload, and the `verify` job runs it against the live site after deploy — a red `verify` job means the deployed site is broken.
 
+## Business and message
+
+- Hjernevaerket is a one-person business run by **Rikke Gundorff, autoriseret psykolog**.
+- Offers **oplæg (talks) and workshops** for **kollegagrupper and ledergrupper** — not individual therapy or counselling.
+- Perspective: **social-psychological / evolutionary**. Themes: territorialadfærd, hierarkier og magtkampe, motivation, gruppeorganisering og samarbejdsmønstre, teamprofilering. Focus on the special conditions in *mentale højrisikoerhverv*.
+- **Three specialisations, which must always be clearly visible:** brandvæsen, pædagogiske botilbud, frivillige organisationer. Rikke's own background backs each one (3 years as operational firefighter; broad experience from pædagogiske tilbud in Aalborg Kommune; board member of a voluntary organisation).
+- Copy refers to Rikke in the **third person** ("Rikke …", "hun …").
+- Do not invent facts (prices, durations, clients, testimonials, credentials). Leave such details out until provided.
+- All of this content lives in `src/data/content.ts` (specialisations, themes, formats, process) and `src/config/site.ts` (name, owner, e-mail, navigation). Edit texts there; pages read from them.
+
 ## Language
 
 - The site's **primary language is Danish** (`da`).
@@ -76,11 +86,14 @@ images-originals/             Original, full-size images — git-ignored, never 
 public/                       Static files copied as-is (favicons, share image, CNAME)
 src/assets/                   Logo and other images processed by Astro
 src/assets/images/            Downscaled photos produced by `npm run images` (committed)
-src/config/site.ts            Site name, navigation, contact info, url() helper
+src/config/site.ts            Site name, owner, navigation, contact info, url() helper
+src/data/content.ts           Specialisations, themes, formats and process texts
 src/layouts/Layout.astro      Page shell (head/meta, header, footer)
 src/components/               Shared components (Header, Footer, Logo, PageHeader, SectionHeading)
-src/components/home/          Front page sections (Hero, Intro, Offerings, ...)
-src/pages/                    File-based routes (index, om, forloeb, kontakt, ...)
+src/components/               Also: Icon (line icons from a path), CtaBand (e-mail call to action)
+src/components/home/          Front page sections (Hero, Specialer, Perspektiv, Temaer, OmRikke, Format)
+src/pages/                    Routes: index, oplaeg, om, kontakt, privatlivspolitik, 404
+src/pages/specialer/[slug].astro  One page per specialisation, generated from src/data/content.ts
 src/styles/global.css         Tailwind entry, design tokens (@theme) and utilities
 scripts/                      Site/link checker, image preparation and image size check
 astro.config.mjs              Astro config (site, image breakpoints, i18n, Tailwind plugin)

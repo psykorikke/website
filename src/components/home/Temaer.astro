@@ -1,0 +1,25 @@
+---
+import SectionHeading from '../SectionHeading.astro';
+import Icon from '../Icon.astro';
+import { temaer } from '../../data/content';
+---
+
+<section class="bg-sand-100 py-20 md:py-28">
+  <div class="container-site">
+    <SectionHeading eyebrow="Temaer" title="Det arbejder vi med" />
+    <div class="mt-14 grid gap-px bg-sand-200 sm:grid-cols-2 lg:grid-cols-3">
+      {temaer.map((t) => (
+        <div class="bg-sand-50 p-8">
+          <div class="text-ice-600"><Icon path={t.icon} class="h-8 w-8" /></div>
+          <h3 class="mt-5 text-lg">{t.title}</h3>
+          <p class="mt-3 text-sm">{t.text}</p>
+        </div>
+      ))}
+      <div class="flex flex-col justify-center bg-navy-900 p-8 text-sand-200">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-ice-300">Til</p>
+        <p class="mt-3 text-lg font-semibold text-white">Kollegagrupper og ledergrupper</p>
+        <p class="mt-3 text-sm">Indholdet tilpasses jeres arbejdsplads og det, I står i lige nu.</p>
+      </div>
+    </div>
+  </div>
+</section>

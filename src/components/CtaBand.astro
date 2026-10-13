@@ -1,0 +1,28 @@
+---
+import { site } from '../config/site';
+
+interface Props {
+  title?: string;
+  text?: string;
+}
+const {
+  title = 'Skal vi tale om jeres gruppe?',
+  text = 'Skriv et par ord om jeres arbejdsplads, og hvad I gerne vil have ud af et oplæg eller en workshop. Så vender Rikke tilbage.',
+} = Astro.props;
+---
+
+<!-- No backend: contact happens via e-mail only. -->
+<section class="bg-ice-300 py-16 md:py-20">
+  <div class="container-site grid items-center gap-8 md:grid-cols-[2fr_1fr]">
+    <div>
+      <h2 class="text-2xl sm:text-3xl">{title}</h2>
+      <p class="mt-3 max-w-2xl text-navy-800">{text}</p>
+    </div>
+    <div class="md:text-right">
+      <a href={`mailto:${site.email}`} class="btn bg-navy-900 text-white hover:bg-navy-700">Send en e-mail</a>
+      <p class="mt-3 text-sm text-navy-800">
+        <a href={`mailto:${site.email}`} class="inline-block py-2 [overflow-wrap:anywhere] underline underline-offset-4 hover:text-navy-900">{site.email}</a>
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,81 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Icon from '../components/Icon.astro';
+import { url } from '../config/site';
+import { formater, maalgrupper, proces, specialer, temaer } from '../data/content';
+---
+
+<Layout title="Oplæg & workshops" description="Oplæg og workshops om territorialadfærd, hierarkier, magtkampe, motivation, gruppeorganisering og teamprofilering.">
+  <PageHeader
+    eyebrow="Oplæg & workshops"
+    title="Oplæg & workshops"
+    intro="For kollegagrupper og ledergrupper i brandvæsen, pædagogiske botilbud og frivillige organisationer."
+  />
+
+  <section class="bg-sand-50 py-16 md:py-24">
+    <div class="container-site">
+      <div class="grid gap-6 md:grid-cols-2">
+        {formater.map((f, i) => (
+          <article class={`p-8 sm:p-10 ${i === 0 ? 'bg-ice-100' : 'bg-sand-100'}`}>
+            <h2 class="text-xl sm:text-2xl">{f.title}</h2>
+            <p class="mt-4">{f.text}</p>
+          </article>
+        ))}
+      </div>
+      <p class="mt-8 text-center text-sm">
+        For {maalgrupper.map((m) => m.toLowerCase()).join(' og ')} · Indhold og længde tilpasses jer
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-white py-16 md:py-24">
+    <div class="container-site">
+      <SectionHeading eyebrow="Temaer" title="Det kan oplægget handle om">
+        <p class="mt-4">Temaerne kan kombineres og tilpasses jeres arbejdsplads.</p>
+      </SectionHeading>
+      <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {temaer.map((t) => (
+          <div>
+            <div class="text-ice-600"><Icon path={t.icon} class="h-8 w-8" /></div>
+            <h3 class="mt-4 text-lg">{t.title}</h3>
+            <p class="mt-2 text-sm">{t.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-sand-100 py-16 md:py-24">
+    <div class="container-site">
+      <SectionHeading eyebrow="Forløb" title="Sådan foregår det" />
+      <ol class="mt-12 grid gap-6 md:grid-cols-3">
+        {proces.map((p, i) => (
+          <li class="bg-sand-50 p-8">
+            <span class="flex h-10 w-10 items-center justify-center rounded-full bg-navy-900 text-sm font-semibold text-ice-300">{i + 1}</span>
+            <h3 class="mt-5 text-lg">{p.title}</h3>
+            <p class="mt-2 text-sm">{p.text}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="bg-white py-16">
+    <div class="container-site">
+      <p class="eyebrow mb-6 text-center">Specialer</p>
+      <div class="grid gap-4 md:grid-cols-3">
+        {specialer.map((s) => (
+          <a href={url(`/specialer/${s.slug}`)} class="group flex items-center gap-4 bg-sand-50 p-6 ring-1 ring-sand-200 transition-shadow hover:shadow-md">
+            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-navy-900 text-ice-300"><Icon path={s.icon} class="h-5 w-5" /></span>
+            <span class="font-semibold text-navy-900 group-hover:text-ice-700">{s.title}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</Layout>

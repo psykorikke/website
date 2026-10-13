@@ -1,0 +1,79 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Icon from '../../components/Icon.astro';
+import { site, url } from '../../config/site';
+import { specialer, temaer, type Speciale } from '../../data/content';
+
+export function getStaticPaths() {
+  return specialer.map((s) => ({ params: { slug: s.slug }, props: { speciale: s } }));
+}
+
+const { speciale: s } = Astro.props as { speciale: Speciale };
+const others = specialer.filter((o) => o.slug !== s.slug);
+---
+
+<Layout title={s.title} description={`Oplæg og workshops for ${s.title.toLowerCase()}: ${s.short}`}>
+  <PageHeader eyebrow="Speciale" title={s.title} intro={s.intro} />
+
+  <section class="bg-sand-50 py-16 md:py-24">
+    <div class="container-site grid gap-12 md:grid-cols-2 md:gap-16">
+      <div>
+        <h2 class="text-xl sm:text-2xl">Kender I det?</h2>
+        <ul class="mt-6 space-y-4">
+          {s.recognise.map((item) => (
+            <li class="flex gap-3">
+              <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-ice-400" aria-hidden="true"></span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-xl sm:text-2xl">Det sætter vi fokus på</h2>
+        <ul class="mt-6 space-y-4">
+          {s.focus.map((item) => (
+            <li class="flex gap-3">
+              <svg class="mt-1 h-5 w-5 shrink-0 text-ice-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12l5 5 9-10" /></svg>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+        <a href={url('/oplaeg')} class="link-underline mt-8">Se alle temaer og formater</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-navy-900 py-16 text-sand-200 md:py-20">
+    <div class="container-site flex flex-col gap-6 sm:flex-row sm:items-center">
+      <div class="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-navy-800 text-ice-300">
+        <Icon path={s.icon} class="h-8 w-8" />
+      </div>
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-ice-300">Kendskab indefra</p>
+        <p class="mt-2 text-lg text-white sm:text-xl">{s.experience}</p>
+        <p class="mt-2 text-sm">{site.owner}, {site.ownerTitle.toLowerCase()}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-16 md:py-20">
+    <div class="container-site">
+      <p class="eyebrow mb-6">Andre specialer</p>
+      <div class="grid gap-4 sm:grid-cols-2">
+        {others.map((o) => (
+          <a href={url(`/specialer/${o.slug}`)} class="group flex items-center gap-4 bg-sand-50 p-6 ring-1 ring-sand-200 transition-shadow hover:shadow-md">
+            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-navy-900 text-ice-300"><Icon path={o.icon} class="h-5 w-5" /></span>
+            <span>
+              <span class="block font-semibold text-navy-900 group-hover:text-ice-700">{o.title}</span>
+              <span class="block text-sm">{o.short}</span>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand title={`Oplæg eller workshop for ${s.title.toLowerCase()}?`} />
+</Layout>

@@ -1,0 +1,32 @@
+---
+import SectionHeading from '../SectionHeading.astro';
+import Icon from '../Icon.astro';
+import { url } from '../../config/site';
+import { specialer } from '../../data/content';
+---
+
+<section class="bg-sand-50 py-20 md:py-28">
+  <div class="container-site">
+    <SectionHeading eyebrow="Specialer" title="Specialiseret i tre typer arbejdspladser">
+      <p class="mt-4 text-base sm:text-lg">
+        Fælles for dem er, at man står i krævende situationer sammen og er afhængig af hinanden. Og Rikke kender dem alle tre indefra.
+      </p>
+    </SectionHeading>
+
+    <div class="mt-14 grid gap-6 md:grid-cols-3">
+      {specialer.map((s) => (
+        <article class="group flex flex-col bg-white p-8 shadow-sm ring-1 ring-sand-200 transition-shadow hover:shadow-lg">
+          <div class="flex h-14 w-14 items-center justify-center rounded-full bg-navy-900 text-ice-300">
+            <Icon path={s.icon} class="h-7 w-7" />
+          </div>
+          <h3 class="mt-6 text-xl">{s.title}</h3>
+          <p class="mt-2 text-sm">{s.short}</p>
+          <p class="mt-5 flex-1 border-l-2 border-ice-300 pl-4 text-sm text-navy-700">{s.experience}</p>
+          <a href={url(`/specialer/${s.slug}`)} class="btn-outline mt-8 w-full">
+            Læs mere<span class="sr-only"> om {s.title.toLowerCase()}</span>
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

@@ -4,15 +4,18 @@ export const site = {
   name: 'Hjernevaerket',
   // Wordmark is split in two so the second half can be rendered bold.
   wordmark: ['Hjerne', 'vaerket'] as const,
-  description: 'Hjernevaerket – viden, ro og retning for hjernen.',
+  description:
+    'Oplæg og workshops om gruppedynamik for kollega- og ledergrupper i brandvæsen, pædagogiske botilbud og frivillige organisationer – ved autoriseret psykolog Rikke Gundorff.',
+  owner: 'Rikke Gundorff',
+  ownerTitle: 'Autoriseret psykolog',
   email: 'kontakt@hjernevaerket.dk',
-  cta: { label: 'Book en samtale', href: '/kontakt' },
+  cta: { label: 'Book et oplæg', href: '/kontakt' },
 };
 
 export const nav = [
   { label: 'Forside', href: '/' },
-  { label: 'Om', href: '/om' },
-  { label: 'Forløb', href: '/forloeb' },
+  { label: 'Oplæg & workshops', href: '/oplaeg' },
+  { label: 'Om Rikke', href: '/om' },
   { label: 'Kontakt', href: '/kontakt' },
 ];
 

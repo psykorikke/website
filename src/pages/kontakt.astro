@@ -6,31 +6,35 @@ import { site } from '../config/site';
 // The site has no backend, so contact happens by e-mail only (no forms).
 const faq = [
   {
-    q: 'Hvordan booker jeg en samtale?',
-    a: 'Skriv en e-mail med et par ord om, hvad du gerne vil have hjælp til, og hvornår du typisk kan. Så vender vi tilbage med forslag til tidspunkter.',
+    q: 'Hvordan booker jeg et oplæg eller en workshop?',
+    a: 'Send en e-mail med et par ord om jeres arbejdsplads, hvem deltagerne er, og hvad I gerne vil have ud af det. Skriv også gerne, hvornår det kunne passe jer. Så vender Rikke tilbage.',
   },
   {
-    q: 'Hvor hurtigt får jeg svar?',
-    a: 'Vi bestræber os på at svare inden for to hverdage.',
+    q: 'Kan indholdet tilpasses vores arbejdsplads?',
+    a: 'Ja. Oplæg og workshops tilrettelægges ud fra jeres hverdag og det, I står i – for eksempel samarbejde på tværs af vagthold, nye kolleger, der skal finde ind, eller roller mellem ledelse og medarbejdere.',
   },
   {
-    q: 'Kan I holde foredrag på vores arbejdsplads?',
-    a: 'Ja. Fortæl os om jeres målgruppe, ønsker og mulige datoer, så sender vi et forslag.',
+    q: 'Er det for medarbejdere eller ledere?',
+    a: 'Begge dele. Rikke arbejder både med kollegagrupper og ledergrupper – og kan også tage fat på samspillet mellem dem.',
+  },
+  {
+    q: 'Arbejder du også med andre brancher?',
+    a: 'Specialet er brandvæsen, pædagogiske botilbud og frivillige organisationer. Har I en arbejdsplads med lignende vilkår, er I velkomne til at skrive – så finder vi ud af, om det giver mening.',
   },
 ];
 ---
 
-<Layout title="Kontakt" description="Kontakt Hjernevaerket på e-mail.">
-  <PageHeader eyebrow="Kontakt" title="Kontakt" intro="Skriv til os – vi svarer hurtigst muligt." />
+<Layout title="Kontakt" description="Kontakt Hjernevaerket og autoriseret psykolog Rikke Gundorff om oplæg og workshops.">
+  <PageHeader eyebrow="Kontakt" title="Kontakt" intro="Skriv til Rikke om oplæg og workshops til jeres arbejdsplads." />
 
   <section class="bg-sand-50 py-20">
     <div class="container-site grid gap-12 md:grid-cols-2">
       <div class="bg-navy-900 p-6 text-sand-200 sm:p-10">
-        <h2 class="text-xl text-white">Skriv til os</h2>
-        <p class="mt-4">Den hurtigste vej til os er en e-mail. Fortæl gerne kort, hvad du ønsker hjælp til.</p>
+        <h2 class="text-xl text-white">Skriv til Rikke</h2>
+        <p class="mt-4">Den hurtigste vej er en e-mail. Fortæl gerne kort om jeres arbejdsplads, og hvad I gerne vil have ud af et oplæg eller en workshop.</p>
         <a href={`mailto:${site.email}`} class="btn-primary mt-8">Send en e-mail</a>
         <p class="mt-4 text-sm">
-          eller skriv direkte til <a href={`mailto:${site.email}`} class="inline-block py-1 font-medium text-ice-300 underline underline-offset-4 break-all hover:text-white">{site.email}</a>
+          eller skriv direkte til <a href={`mailto:${site.email}`} class="inline-block py-2 font-medium text-ice-300 underline underline-offset-4 [overflow-wrap:anywhere] hover:text-white">{site.email}</a>
         </p>
       </div>
 

@@ -1,0 +1,33 @@
+---
+import Icon from '../Icon.astro';
+import { site, url } from '../../config/site';
+import { specialer } from '../../data/content';
+---
+
+<section class="bg-navy-900 py-20 text-sand-200 md:py-28">
+  <div class="container-site grid gap-12 md:grid-cols-2 md:gap-16">
+    <div>
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-ice-300">Om {site.name}</p>
+      <h2 class="text-2xl text-white sm:text-3xl">{site.owner}</h2>
+      <p class="mt-1 text-sand-300">{site.ownerTitle}</p>
+      <p class="mt-6 text-base sm:text-lg">
+        {site.name} er en enkeltmandsvirksomhed drevet af Rikke. Hun kombinerer psykologfaglig viden med egen erfaring fra de arbejdspladser, hun holder oplæg for – så snakken handler om jeres hverdag, ikke en teoretisk version af den.
+      </p>
+      <a href={url('/om')} class="mt-8 inline-block border-b-2 border-ice-300 pt-3 pb-1 text-xs font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:text-ice-300">Mere om Rikke</a>
+    </div>
+
+    <ul class="space-y-4">
+      {specialer.map((s) => (
+        <li class="flex gap-4 bg-navy-800 p-6">
+          <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-navy-900 text-ice-300">
+            <Icon path={s.icon} class="h-5 w-5" />
+          </div>
+          <div>
+            <p class="font-semibold text-white">{s.title}</p>
+            <p class="mt-1 text-sm">{s.experience}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
