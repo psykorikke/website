@@ -1,14 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Hero from '../components/home/Hero.astro';
+import Intro from '../components/home/Intro.astro';
+import Offerings from '../components/home/Offerings.astro';
+import Testimonial from '../components/home/Testimonial.astro';
+import Newsletter from '../components/home/Newsletter.astro';
+import SupportRow from '../components/home/SupportRow.astro';
 ---
 
-<Layout description="Velkommen til Hjernevaerket.">
-  <section class="max-w-2xl">
-    <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-brand-900">
-      Velkommen til Hjernevaerket
-    </h1>
-    <p class="mt-6 text-lg leading-relaxed text-brand-700">
-      Hjemmesiden er under opbygning. Kom snart tilbage for mere indhold.
-    </p>
-  </section>
+<Layout>
+  <Hero />
+  <Intro />
+  <Offerings />
+  <Testimonial />
+  <Newsletter />
+  <SupportRow />
 </Layout>

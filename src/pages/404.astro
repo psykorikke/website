@@ -1,16 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+import { url } from '../config/site';
 ---
 
 <Layout title="Siden blev ikke fundet">
-  <section class="max-w-2xl">
-    <h1 class="text-4xl font-bold tracking-tight">Siden blev ikke fundet</h1>
-    <p class="mt-4 text-lg text-brand-700">
-      Beklager, den side du leder efter, findes ikke.
-    </p>
-    <a href={`${base}/`} class="mt-8 inline-block rounded-md bg-brand-700 px-4 py-2 text-white hover:bg-brand-900">
-      Gå til forsiden
-    </a>
+  <section class="bg-cream-200 py-28">
+    <div class="container-site max-w-2xl text-center">
+      <p class="eyebrow mb-4">Fejl 404</p>
+      <h1 class="text-3xl uppercase tracking-[0.12em] sm:text-4xl">Siden blev ikke fundet</h1>
+      <p class="mt-6 text-lg">Beklager, den side du leder efter, findes ikke.</p>
+      <a href={url('/')} class="btn-primary mt-10">Gå til forsiden</a>
+    </div>
   </section>
 </Layout>

@@ -1,0 +1,38 @@
+---
+import Logo from './Logo.astro';
+import { nav, site, url } from '../config/site';
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-white">
+  <div class="container-site grid gap-12 py-16 md:grid-cols-[2fr_1fr_1fr]">
+    <div class="max-w-sm">
+      <Logo />
+      <p class="mt-5 text-sm">{site.description}</p>
+    </div>
+
+    <div>
+      <h2 class="eyebrow mb-5">Menu</h2>
+      <ul class="space-y-3 text-sm">
+        {nav.map((item) => (
+          <li><a href={url(item.href)} class="hover:text-sand-500 transition-colors">{item.label}</a></li>
+        ))}
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="eyebrow mb-5">Kontakt</h2>
+      <ul class="space-y-3 text-sm">
+        <li><a href={`mailto:${site.email}`} class="hover:text-sand-500 transition-colors">{site.email}</a></li>
+        <li><a href={url(site.cta.href)} class="hover:text-sand-500 transition-colors">{site.cta.label}</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-cream-200">
+    <div class="container-site flex flex-col gap-2 py-6 text-xs sm:flex-row sm:justify-between">
+      <p>&copy; {year} {site.name}. Alle rettigheder forbeholdes.</p>
+      <p><a href={url('/privatlivspolitik')} class="hover:text-sand-500">Privatlivspolitik</a></p>
+    </div>
+  </div>
+</footer>

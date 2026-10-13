@@ -1,10 +1,69 @@
 @import "tailwindcss";
+@import "@fontsource/poppins/400.css";
+@import "@fontsource/poppins/500.css";
+@import "@fontsource/poppins/600.css";
+@import "@fontsource/poppins/700.css";
 
+/*
+ * Design tokens — warm, calm palette:
+ * cream backgrounds, a tan/gold accent and near-black headings.
+ */
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --color-brand-50: #f3f6fb;
-  --color-brand-100: #e3eaf6;
-  --color-brand-500: #3d5a99;
-  --color-brand-700: #263a66;
-  --color-brand-900: #141f38;
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+
+  --color-cream-50: #fbfaf9;
+  --color-cream-100: #f8f6f5;
+  --color-cream-200: #f4f1ee;
+  --color-cream-300: #e9e2db;
+
+  --color-sand-300: #e4cfb3;
+  --color-sand-400: #d1a976;
+  --color-sand-500: #bf935c;
+  --color-sand-600: #9f7744;
+
+  --color-rose-200: #e8dcda;
+  --color-rose-300: #d4c2bf;
+
+  --color-mist-100: #edf1f5;
+  --color-mist-200: #e9edf1;
+
+  --color-ink-500: #606060;
+  --color-ink-700: #333333;
+  --color-ink-900: #111111;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-cream-100 text-ink-500 font-sans text-[15px] leading-relaxed tracking-[0.02em];
+  }
+  h1, h2, h3, h4 {
+    @apply text-ink-900 font-bold tracking-wide;
+  }
+  ::selection {
+    @apply bg-sand-300 text-ink-900;
+  }
+}
+
+/* Reusable component utilities (usable as classes and with @apply) */
+@utility container-site {
+  @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+}
+/* Small uppercase label above headings and on cards */
+@utility eyebrow {
+  @apply text-xs font-semibold uppercase tracking-[0.2em] text-sand-500;
+}
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 px-6 py-3 text-xs font-semibold uppercase tracking-[0.15em] transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sand-500;
+}
+@utility btn-primary {
+  @apply btn bg-sand-400 text-white hover:bg-sand-600;
+}
+@utility btn-outline {
+  @apply btn border border-sand-400 text-sand-600 hover:bg-sand-400 hover:text-white;
+}
+@utility link-underline {
+  @apply text-xs font-semibold uppercase tracking-[0.2em] text-sand-600 border-b border-sand-400 pb-1 transition-colors hover:text-ink-900 hover:border-ink-900;
 }

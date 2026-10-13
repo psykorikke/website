@@ -1,0 +1,12 @@
+---
+import { site, url } from '../config/site';
+interface Props { class?: string }
+const { class: className = '' } = Astro.props;
+---
+
+<a href={url('/')} class={`inline-flex items-center gap-2 text-ink-900 ${className}`} aria-label={`${site.name} – forside`}>
+  <span class="inline-block h-3 w-3 rounded-full bg-sand-400" aria-hidden="true"></span>
+  <span class="text-[15px] uppercase tracking-[0.12em]">
+    <span class="font-normal">{site.wordmark[0]}</span><span class="font-bold">{site.wordmark[1]}</span>
+  </span>
+</a>

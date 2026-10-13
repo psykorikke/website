@@ -8,7 +8,9 @@ Guidance for AI coding agents (Claude and others) working in this repository.
 - **Repository:** https://github.com/psykorikke/website
 - **Live site:** https://psykorikke.github.io/website/
 
-## Tech stack (do not change without being asked)
+## Tech stack (mandatory)
+
+**The website must be built with Astro and Tailwind CSS.** Do not introduce other frameworks (React, Vue, Svelte, etc.), other CSS frameworks or CSS-in-JS. New styling uses Tailwind utilities or tokens/utilities defined in `src/styles/global.css`.
 
 - **Framework:** [Astro](https://astro.build) (static output, no SSR adapter)
 - **Styling:** [Tailwind CSS v4](https://tailwindcss.com) via the `@tailwindcss/vite` plugin
@@ -38,13 +40,25 @@ Guidance for AI coding agents (Claude and others) working in this repository.
 ## Project structure
 
 ```
-public/                 Static files copied as-is (favicon, images, CNAME)
-src/layouts/Layout.astro  Shared page shell (head, header, footer)
-src/pages/              File-based routes (index.astro, 404.astro, …)
-src/styles/global.css   Tailwind entry point and theme tokens
-astro.config.mjs        Astro config (site, base, i18n, Tailwind plugin)
-.github/workflows/      GitHub Pages deploy workflow
+public/                       Static files copied as-is (favicon, images, CNAME)
+src/config/site.ts            Site name, navigation, contact info, url() helper
+src/layouts/Layout.astro      Page shell (head/meta, header, footer)
+src/components/               Shared components (Header, Footer, Logo, PageHeader, SectionHeading)
+src/components/home/          Front page sections (Hero, Intro, Offerings, ...)
+src/pages/                    File-based routes (index, om, forloeb, kontakt, ...)
+src/styles/global.css         Tailwind entry, design tokens (@theme) and utilities
+astro.config.mjs              Astro config (site, base, i18n, Tailwind plugin)
+.github/workflows/            GitHub Pages deploy workflow
 ```
+
+## Design system
+
+- Warm, calm look: cream backgrounds (`cream-*`), tan accent (`sand-*`), soft secondary tones (`rose-*`, `mist-*`) and near-black headings (`ink-*`). All colours are tokens in `src/styles/global.css` — use them instead of arbitrary hex values.
+- Font: Poppins, **self-hosted** via `@fontsource/poppins`. Do not load fonts or other assets from Google Fonts or third-party CDNs (GDPR).
+- Reusable utilities: `container-site`, `eyebrow` (small uppercase label), `btn-primary`, `btn-outline`, `link-underline`.
+- Headings are bold with wide letter-spacing; hero/page titles are uppercase. Buttons are flat and square.
+- Sections alternate background colours (cream-100 / cream-200 / white) for rhythm.
+- Build internal links with `url()` from `src/config/site.ts`.
 
 ## Commands
 
@@ -62,3 +76,6 @@ astro.config.mjs        Astro config (site, base, i18n, Tailwind plugin)
 3. Keep the site fully static — no server adapters or runtime secrets.
 4. New pages use `src/layouts/Layout.astro` and Danish content.
 5. Changes to `main` go live automatically, so keep `main` deployable.
+6. Always use Astro and Tailwind CSS for the website (see *Tech stack*).
+7. Never reference external design sources, themes, templates or sites used as inspiration in committed code, comments, commit messages or docs.
+8. Keep pages accessible: semantic HTML, alt text, labelled form fields, visible focus states.

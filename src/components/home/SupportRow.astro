@@ -1,0 +1,41 @@
+---
+import { site, url } from '../../config/site';
+
+const items = [
+  {
+    title: 'Har du spørgsmål?',
+    text: 'Find svar på de mest almindelige spørgsmål.',
+    link: { label: 'Se ofte stillede spørgsmål', href: url('/kontakt#faq') },
+    icon: 'M12 18h.01M9.1 9a3 3 0 1 1 4.2 2.7c-.8.4-1.3 1.2-1.3 2.1V14',
+  },
+  {
+    title: 'Kontakt os',
+    text: 'Skriv til os, så vender vi tilbage hurtigst muligt.',
+    link: { label: site.email, href: `mailto:${site.email}` },
+    icon: 'M4 6h16v12H4zM4 7l8 6 8-6',
+  },
+  {
+    title: 'Foredrag og presse',
+    text: 'Book et foredrag eller kontakt os om presse.',
+    link: { label: 'Send en forespørgsel', href: url('/kontakt') },
+    icon: 'M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3zM5 11a7 7 0 0 0 14 0M12 18v3',
+  },
+];
+---
+
+<section class="bg-cream-100 py-20">
+  <div class="container-site grid gap-12 text-center md:grid-cols-3">
+    {items.map((item) => (
+      <div>
+        <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-white text-sand-500">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d={item.icon} />
+          </svg>
+        </div>
+        <h3 class="mt-5 text-base">{item.title}</h3>
+        <p class="mt-2 text-sm">{item.text}</p>
+        <a href={item.link.href} class="mt-4 inline-block text-sm font-medium text-sand-600 hover:text-ink-900">{item.link.label}</a>
+      </div>
+    ))}
+  </div>
+</section>

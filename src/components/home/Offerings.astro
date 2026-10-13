@@ -1,0 +1,54 @@
+---
+import SectionHeading from '../SectionHeading.astro';
+import { url } from '../../config/site';
+
+const offerings = [
+  {
+    label: 'Online',
+    title: 'Forløb i dit eget tempo',
+    text: 'Korte moduler med øvelser, du kan tage hjemmefra, når det passer dig.',
+    href: '/forloeb',
+    tone: 'bg-mist-200',
+  },
+  {
+    label: 'Én til én',
+    title: 'Personlige samtaler',
+    text: 'Et fortroligt rum, hvor vi sammen arbejder med netop dine udfordringer.',
+    href: '/forloeb',
+    tone: 'bg-rose-200',
+  },
+  {
+    label: 'Grupper',
+    title: 'Workshops og foredrag',
+    text: 'Inspirerende oplæg og workshops for arbejdspladser, skoler og foreninger.',
+    href: '/forloeb',
+    tone: 'bg-cream-300',
+  },
+];
+---
+
+<section class="bg-white py-20 md:py-28">
+  <div class="container-site">
+    <SectionHeading eyebrow="Tilbud" title="Find det forløb, der passer til dig" />
+
+    <div class="mt-14 grid gap-8 md:grid-cols-3">
+      {offerings.map((item) => (
+        <article class="group flex flex-col bg-cream-100 transition-shadow hover:shadow-lg">
+          <div class={`aspect-[4/3] ${item.tone} flex items-center justify-center`}>
+            <span class="h-16 w-16 rounded-full bg-white/60 transition-transform duration-300 group-hover:scale-110" aria-hidden="true"></span>
+          </div>
+          <div class="flex flex-1 flex-col p-8">
+            <p class="eyebrow">{item.label}</p>
+            <h3 class="mt-3 text-lg">{item.title}</h3>
+            <p class="mt-3 flex-1 text-sm">{item.text}</p>
+            <a href={url(item.href)} class="btn-outline mt-8 w-full">Læs mere</a>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="mt-14 text-center">
+      <a href={url('/forloeb')} class="link-underline">Se alle forløb</a>
+    </div>
+  </div>
+</section>
