@@ -5,7 +5,7 @@ export const site = {
   // Wordmark is split in two so the second half can be rendered bold.
   wordmark: ['Hjerne', 'vaerket'] as const,
   description: 'Hjernevaerket – viden, ro og retning for hjernen.',
-  email: 'kontakt@hjernevarket.dk',
+  email: 'kontakt@hjernevaerket.dk',
   cta: { label: 'Book en samtale', href: '/kontakt' },
 };
 

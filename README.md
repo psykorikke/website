@@ -1,13 +1,13 @@
 # Hjernevaerket
 
 Hjemmeside bygget med [Astro](https://astro.build) og [Tailwind CSS](https://tailwindcss.com), udgivet på GitHub Pages:
-https://psykorikke.github.io/website/
+https://hjernevaerket.dk
 
 ## Kom i gang
 
 ```sh
 npm install
-npm run dev      # http://localhost:4321/website
+npm run dev      # http://localhost:4321
 npm run build    # bygger til dist/
 ```
 

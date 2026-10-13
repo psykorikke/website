@@ -2,11 +2,9 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 
-// Deployed as a GitHub Pages *project* site: https://psykorikke.github.io/website/
-// If a custom domain is added later, change `site` to that domain and remove `base`.
+// Deployed to GitHub Pages on the custom domain https://hjernevaerket.dk (served from the root, so no `base`).
 export default defineConfig({
-  site: 'https://psykorikke.github.io',
-  base: '/website',
+  site: 'https://hjernevaerket.dk',
   trailingSlash: 'ignore',
   i18n: {
     defaultLocale: 'da',
