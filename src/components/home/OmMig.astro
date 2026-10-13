@@ -1,0 +1,27 @@
+---
+import Icon from '../Icon.astro';
+import { site } from '../../config/site';
+import { erfaring, specialer } from '../../data/content';
+---
+
+<section id="om-mig" class="scroll-mt-20 bg-white py-16 md:py-24" aria-labelledby="om-mig-titel">
+  <div class="container-site grid gap-10 md:grid-cols-2 md:gap-16">
+    <div>
+      <h2 id="om-mig-titel" class="text-2xl sm:text-3xl">Om mig</h2>
+      <p class="mt-5 text-base sm:text-lg">
+        Jeg hedder {site.owner} og er {site.ownerTitle.toLowerCase()}. Mine oplæg og workshops handler om mennesket på arbejdspladsen – og de tre områder, jeg arbejder med, kender jeg indefra.
+      </p>
+    </div>
+
+    <ul class="space-y-4">
+      {erfaring.map((item, i) => (
+        <li class="flex items-center gap-4 bg-sand-50 p-5 ring-1 ring-sand-200">
+          <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-navy-900 text-ice-300">
+            <Icon path={specialer[i].icon} class="h-5 w-5" />
+          </span>
+          <span class="text-navy-900">{item}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

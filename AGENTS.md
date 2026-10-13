@@ -33,14 +33,14 @@ Guidance for AI coding agents (Claude and others) working in this repository.
 
 ## Business and message
 
-- Hjernevaerket is a one-person business run by **Rikke Gundorff, autoriseret psykolog**.
+- Hjernevaerket is a one-person business run by **Rikke Gundorff, psykolog**. Do not use the word "autoriseret".
 - Offers **oplæg (talks) and workshops** for **kollegagrupper and ledergrupper** — not individual therapy or counselling.
-- Perspective: **social-psychological / evolutionary**. Themes: territorialadfærd, hierarkier og magtkampe, motivation, gruppeorganisering og samarbejdsmønstre, teamprofilering. Focus on the special conditions in *mentale højrisikoerhverv*.
-- **The site is a single, short landing page** (`src/pages/index.astro`): hero → three boxes (one per specialisation, a couple of sentences each) → e-mail contact. Keep text to a minimum. Do not add sub-pages, long sections or extra navigation unless explicitly asked.
-- **Three specialisations, which must always be clearly visible:** brandvæsen, pædagogiske botilbud, frivillige organisationer. Rikke's own background backs each one (3 years as operational firefighter; broad experience from pædagogiske tilbud in Aalborg Kommune; board member of a voluntary organisation).
-- Copy refers to Rikke in the **third person** ("Rikke …", "hun …").
+- The talks are about **"mennesket på arbejdspladsen"** (the human being at work), from a social-psychological / evolutionary perspective. Avoid leading with words like *hierarkier*, *magtkampe* or *rangorden* — they read as negative. Prefer samarbejde, roller, sammenhold, fællesskab, motivation.
+- **The site is a single, short landing page** (`src/pages/index.astro`): hero → three boxes (one per specialisation, a couple of sentences each) → "Om mig" (Rikke's experience) → e-mail contact. Keep text to a minimum. Do not add sub-pages, long sections or extra navigation unless explicitly asked.
+- **Three specialisations, which must always be clearly visible:** brandvæsen, pædagogiske botilbud, frivillige organisationer. Rikke's background is shown in the "Om mig" section, not in the boxes: 3 years as operational firefighter; broad experience from pædagogiske tilbud in Aalborg Kommune; board member of a voluntary organisation.
+- Copy is written in the **first person** – Rikke's own voice ("jeg", "mig").
 - Do not invent facts (prices, durations, clients, testimonials, credentials). Leave such details out until provided.
-- The specialisation texts live in `src/data/content.ts`; name, owner and e-mail in `src/config/site.ts`.
+- The specialisation texts and the "Om mig" experience list live in `src/data/content.ts`; name, title, owner and e-mail in `src/config/site.ts`.
 
 ## Language
 
@@ -88,10 +88,10 @@ public/                       Static files copied as-is (favicons, share image, 
 src/assets/                   Logo and other images processed by Astro
 src/assets/images/            Downscaled photos produced by `npm run images` (committed)
 src/config/site.ts            Site name, owner, e-mail, url() helper
-src/data/content.ts           The three specialisation boxes (title, text, icon)
+src/data/content.ts           The three specialisation boxes and the "Om mig" experience list
 src/layouts/Layout.astro      Page shell (head/meta, header, footer)
 src/components/               Header, Footer, Logo, Icon (line icon from a path), CtaBand (#kontakt, e-mail)
-src/components/home/          Landing page sections: Hero, Specialer (the three boxes)
+src/components/home/          Landing page sections: Hero, Specialer (the three boxes), OmMig
 src/pages/                    index (the landing page) and 404
 src/styles/global.css         Tailwind entry, design tokens (@theme) and utilities
 scripts/                      Site/link checker, image preparation and image size check
