@@ -10,9 +10,9 @@ const { class: className = '' } = Astro.props;
 ---
 
 <!-- For use on navy backgrounds: the mark's own background is navy-900. -->
-<a href={url('/')} class={`inline-flex items-center gap-3 ${className}`} aria-label={`${site.name} – forside`}>
-  <Image src={brainMark} alt="" width={44} height={44} class="h-11 w-11" loading="eager" />
-  <span class="text-lg font-medium uppercase tracking-[0.08em]">
+<a href={url('/')} class={`inline-flex min-w-0 items-center gap-2 sm:gap-3 ${className}`} aria-label={`${site.name} – forside`}>
+  <Image src={brainMark} alt="" width={44} height={44} class="h-9 w-9 shrink-0 sm:h-11 sm:w-11" loading="eager" />
+  <span class="text-[15px] font-medium uppercase tracking-[0.04em] sm:text-lg sm:tracking-[0.08em]">
     <span class="text-sand-400">{site.wordmark[0]}</span><span class="text-ice-300">{site.wordmark[1]}</span>
   </span>
 </a>
