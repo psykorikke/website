@@ -14,11 +14,18 @@ const distDir = 'dist';
 const baseUrl = remote ? target.replace(/\/$/, '') : '';
 
 const REF_PATTERN = /(?:href|src)="([^"]+)"|url\(["']?([^"')]+)["']?\)/g;
+const SRCSET_PATTERN = /srcset="([^"]+)"/g;
 
 function internalRefs(text) {
+  const raw = [];
+  for (const m of text.matchAll(REF_PATTERN)) raw.push(m[1] ?? m[2]);
+  // srcset lists several candidates: "a.webp 360w, b.webp 560w"
+  for (const m of text.matchAll(SRCSET_PATTERN)) {
+    for (const part of m[1].split(',')) raw.push(part.trim().split(/\s+/)[0]);
+  }
   const refs = new Set();
-  for (const m of text.matchAll(REF_PATTERN)) {
-    const ref = (m[1] ?? m[2]).split('#')[0].split('?')[0];
+  for (const r of raw) {
+    const ref = r.split('#')[0].split('?')[0];
     if (ref.startsWith('/') && !ref.startsWith('//')) refs.add(ref);
   }
   return refs;
