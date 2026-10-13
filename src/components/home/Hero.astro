@@ -1,46 +1,30 @@
 ---
 import { Image } from 'astro:assets';
 import logo from '../../assets/logo.png';
-import { site, url } from '../../config/site';
-import { specialer } from '../../data/content';
+import { site } from '../../config/site';
 ---
 
 <!-- Navy hero: the logo's own background is navy-900, so it blends into the section. -->
-<section class="relative overflow-hidden bg-navy-900">
-  <div class="container-site grid items-center gap-12 py-16 md:grid-cols-[3fr_2fr] md:py-24">
-    <div class="relative z-10 max-w-2xl">
-      <p class="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-ice-300">
+<section class="bg-navy-900">
+  <div class="container-site grid items-center gap-10 py-14 md:grid-cols-[3fr_2fr] md:py-20">
+    <div class="max-w-2xl">
+      <p class="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-ice-300">
         {site.ownerTitle} {site.owner}
       </p>
       <h1 class="text-3xl uppercase leading-snug tracking-[0.06em] break-words text-white sm:text-4xl sm:tracking-[0.1em] lg:text-5xl">
         Psykologi for fællesskaber <span class="text-ice-300">under pres</span>
       </h1>
       <p class="mt-6 text-base text-sand-200 sm:text-lg">
-        Oplæg og workshops for kollega- og ledergrupper om territorier, hierarkier, magtkampe og motivation – set fra et socialpsykologisk og evolutionært perspektiv.
+        Oplæg og workshops for kollega- og ledergrupper om territorier, hierarkier, magtkampe og motivation.
       </p>
-
-      <ul class="mt-8 flex flex-wrap gap-2" aria-label="Specialer">
-        {specialer.map((s) => (
-          <li>
-            <a href={url(`/specialer/${s.slug}`)} class="inline-block border border-ice-300/40 px-3 py-2 text-xs font-medium uppercase tracking-[0.12em] text-ice-200 transition-colors hover:border-ice-300 hover:text-white">
-              {s.title}
-            </a>
-          </li>
-        ))}
-      </ul>
-
-      <div class="mt-10 flex flex-wrap items-center gap-6">
-        <a href={url(site.cta.href)} class="btn-primary">{site.cta.label}</a>
-        <a href={url('/oplaeg')} class="inline-block border-b-2 border-sand-400 pt-3 pb-1 text-xs font-semibold uppercase tracking-[0.2em] text-sand-100 transition-colors hover:border-ice-300 hover:text-ice-300">Se oplæg og workshops</a>
-      </div>
     </div>
 
-    <div class="mx-auto w-full max-w-sm">
+    <div class="mx-auto w-full max-w-[18rem] md:max-w-sm">
       <Image
         src={logo}
         alt={`${site.name}s logo: en hjerne med en blå og en sandfarvet halvdel`}
         widths={[320, 480, 672]}
-        sizes="(min-width: 768px) 24rem, 80vw"
+        sizes="(min-width: 768px) 24rem, 18rem"
         loading="eager"
         fetchpriority="high"
         class="h-auto w-full"

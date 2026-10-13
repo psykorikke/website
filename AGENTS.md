@@ -36,10 +36,11 @@ Guidance for AI coding agents (Claude and others) working in this repository.
 - Hjernevaerket is a one-person business run by **Rikke Gundorff, autoriseret psykolog**.
 - Offers **oplæg (talks) and workshops** for **kollegagrupper and ledergrupper** — not individual therapy or counselling.
 - Perspective: **social-psychological / evolutionary**. Themes: territorialadfærd, hierarkier og magtkampe, motivation, gruppeorganisering og samarbejdsmønstre, teamprofilering. Focus on the special conditions in *mentale højrisikoerhverv*.
+- **The site is a single, short landing page** (`src/pages/index.astro`): hero → three boxes (one per specialisation, a couple of sentences each) → e-mail contact. Keep text to a minimum. Do not add sub-pages, long sections or extra navigation unless explicitly asked.
 - **Three specialisations, which must always be clearly visible:** brandvæsen, pædagogiske botilbud, frivillige organisationer. Rikke's own background backs each one (3 years as operational firefighter; broad experience from pædagogiske tilbud in Aalborg Kommune; board member of a voluntary organisation).
 - Copy refers to Rikke in the **third person** ("Rikke …", "hun …").
 - Do not invent facts (prices, durations, clients, testimonials, credentials). Leave such details out until provided.
-- All of this content lives in `src/data/content.ts` (specialisations, themes, formats, process) and `src/config/site.ts` (name, owner, e-mail, navigation). Edit texts there; pages read from them.
+- The specialisation texts live in `src/data/content.ts`; name, owner and e-mail in `src/config/site.ts`.
 
 ## Language
 
@@ -76,7 +77,7 @@ The site must work well on **mobile phones, tablets and desktop**.
   - no horizontal scrolling or content cut off at any width (long words/e-mail addresses must wrap);
   - tap targets (links, buttons, menu toggles) at least ~32 px high on mobile, with spacing between them;
   - body text at least 15 px; headings scale down on small screens;
-  - navigation works on mobile via the menu toggle in `Header.astro`.
+  - header (logo + Kontakt button) fits on one line at 320 px.
 - Images must be responsive (`<Image>` with `sizes`, see *Images*) — never fixed pixel widths wider than a phone screen.
 
 ## Project structure
@@ -86,14 +87,12 @@ images-originals/             Original, full-size images — git-ignored, never 
 public/                       Static files copied as-is (favicons, share image, CNAME)
 src/assets/                   Logo and other images processed by Astro
 src/assets/images/            Downscaled photos produced by `npm run images` (committed)
-src/config/site.ts            Site name, owner, navigation, contact info, url() helper
-src/data/content.ts           Specialisations, themes, formats and process texts
+src/config/site.ts            Site name, owner, e-mail, url() helper
+src/data/content.ts           The three specialisation boxes (title, text, icon)
 src/layouts/Layout.astro      Page shell (head/meta, header, footer)
-src/components/               Shared components (Header, Footer, Logo, PageHeader, SectionHeading)
-src/components/               Also: Icon (line icons from a path), CtaBand (e-mail call to action)
-src/components/home/          Front page sections (Hero, Specialer, Perspektiv, Temaer, OmRikke, Format)
-src/pages/                    Routes: index, oplaeg, om, kontakt, privatlivspolitik, 404
-src/pages/specialer/[slug].astro  One page per specialisation, generated from src/data/content.ts
+src/components/               Header, Footer, Logo, Icon (line icon from a path), CtaBand (#kontakt, e-mail)
+src/components/home/          Landing page sections: Hero, Specialer (the three boxes)
+src/pages/                    index (the landing page) and 404
 src/styles/global.css         Tailwind entry, design tokens (@theme) and utilities
 scripts/                      Site/link checker, image preparation and image size check
 astro.config.mjs              Astro config (site, image breakpoints, i18n, Tailwind plugin)
@@ -108,6 +107,7 @@ astro.config.mjs              Astro config (site, image breakpoints, i18n, Tailw
 - Text on light backgrounds: headings `navy-900`, body `navy-600`, small labels `ice-700` (for contrast). Light text on navy: `sand-200` body, `ice-300` accents.
 - Font: Poppins (Latin subset), **self-hosted** via `@fontsource/poppins`. Do not load fonts or other assets from Google Fonts or third-party CDNs (GDPR).
 - Reusable utilities: `container-site`, `eyebrow` (small uppercase label), `btn-primary` (ice blue), `btn-outline` (navy), `link-underline`.
+- The header has only the logo and a "Kontakt" button that jumps to `#kontakt`.
 - Headings are bold with wide letter-spacing; hero/page titles are uppercase. Buttons are flat and square.
 - Build internal links with `url()` from `src/config/site.ts`.
 

@@ -1,48 +1,19 @@
 ---
 import Logo from './Logo.astro';
-import { nav, site, url } from '../config/site';
-import { specialer } from '../data/content';
+import { site } from '../config/site';
 const year = new Date().getFullYear();
 ---
 
-<footer class="bg-navy-900 text-sand-200">
-  <div class="container-site grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1.2fr_1.4fr]">
-    <div class="max-w-sm">
-      <Logo />
-      <p class="mt-5 text-sm text-sand-300">{site.ownerTitle} {site.owner}</p>
-      <p class="mt-2 text-sm text-sand-300">Oplæg og workshops for kollega- og ledergrupper.</p>
-    </div>
-
-    <div>
-      <h2 class="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-ice-300">Menu</h2>
-      <ul class="space-y-1 text-sm">
-        {nav.map((item) => (
-          <li><a href={url(item.href)} class="inline-block py-2 transition-colors hover:text-ice-300">{item.label}</a></li>
-        ))}
-      </ul>
-    </div>
-
-    <div>
-      <h2 class="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-ice-300">Specialer</h2>
-      <ul class="space-y-1 text-sm">
-        {specialer.map((s) => (
-          <li><a href={url(`/specialer/${s.slug}`)} class="inline-block py-2 transition-colors hover:text-ice-300">{s.title}</a></li>
-        ))}
-      </ul>
-    </div>
-
-    <div>
-      <h2 class="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-ice-300">Kontakt</h2>
-      <ul class="space-y-1 text-sm">
-        <li><a href={`mailto:${site.email}`} class="inline-block py-2 [overflow-wrap:anywhere] transition-colors hover:text-ice-300">{site.email}</a></li>
-      </ul>
-    </div>
+<footer class="bg-navy-900 text-sand-300">
+  <div class="container-site flex flex-col gap-6 py-10 text-sm sm:flex-row sm:items-center sm:justify-between">
+    <Logo />
+    <p class="flex flex-wrap items-center gap-x-2">
+      <span>{site.ownerTitle} {site.owner}</span>
+      <span aria-hidden="true">·</span>
+      <a href={`mailto:${site.email}`} class="inline-block py-2 [overflow-wrap:anywhere] hover:text-ice-300">{site.email}</a>
+    </p>
   </div>
-
   <div class="border-t border-white/10">
-    <div class="container-site flex flex-col gap-2 py-6 text-xs text-sand-300 sm:flex-row sm:justify-between">
-      <p>&copy; {year} {site.name}. Alle rettigheder forbeholdes.</p>
-      <p><a href={url('/privatlivspolitik')} class="inline-block py-2 hover:text-ice-300">Privatlivspolitik</a></p>
-    </div>
+    <p class="container-site py-5 text-xs">&copy; {year} {site.name}</p>
   </div>
 </footer>

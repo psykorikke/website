@@ -9,15 +9,7 @@ export const site = {
   owner: 'Rikke Gundorff',
   ownerTitle: 'Autoriseret psykolog',
   email: 'kontakt@hjernevaerket.dk',
-  cta: { label: 'Book et oplæg', href: '/kontakt' },
 };
-
-export const nav = [
-  { label: 'Forside', href: '/' },
-  { label: 'Oplæg & workshops', href: '/oplaeg' },
-  { label: 'Om Rikke', href: '/om' },
-  { label: 'Kontakt', href: '/kontakt' },
-];
 
 /** Prefix an internal path with the site's base path (needed on GitHub Pages). */
 export function url(path = '/'): string {
