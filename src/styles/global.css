@@ -69,5 +69,5 @@
   @apply btn border border-navy-900 text-navy-900 hover:bg-navy-900 hover:text-white;
 }
 @utility link-underline {
-  @apply text-xs font-semibold uppercase tracking-[0.2em] text-navy-900 border-b-2 border-ice-300 pb-1 transition-colors hover:text-ice-700 hover:border-ice-700;
+  @apply inline-block pt-3 pb-1 text-xs font-semibold uppercase tracking-[0.2em] text-navy-900 border-b-2 border-ice-300 transition-colors hover:text-ice-700 hover:border-ice-700;
 }

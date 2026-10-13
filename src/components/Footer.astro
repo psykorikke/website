@@ -13,17 +13,17 @@ const year = new Date().getFullYear();
 
     <div>
       <h2 class="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-ice-300">Menu</h2>
-      <ul class="space-y-3 text-sm">
+      <ul class="space-y-1 text-sm">
         {nav.map((item) => (
-          <li><a href={url(item.href)} class="transition-colors hover:text-ice-300">{item.label}</a></li>
+          <li><a href={url(item.href)} class="inline-block py-2 transition-colors hover:text-ice-300">{item.label}</a></li>
         ))}
       </ul>
     </div>
 
     <div>
       <h2 class="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-ice-300">Kontakt</h2>
-      <ul class="space-y-3 text-sm">
-        <li><a href={`mailto:${site.email}`} class="transition-colors hover:text-ice-300">{site.email}</a></li>
+      <ul class="space-y-1 text-sm">
+        <li><a href={`mailto:${site.email}`} class="inline-block py-2 transition-colors hover:text-ice-300">{site.email}</a></li>
       </ul>
     </div>
   </div>
@@ -31,7 +31,7 @@ const year = new Date().getFullYear();
   <div class="border-t border-white/10">
     <div class="container-site flex flex-col gap-2 py-6 text-xs text-sand-300 sm:flex-row sm:justify-between">
       <p>&copy; {year} {site.name}. Alle rettigheder forbeholdes.</p>
-      <p><a href={url('/privatlivspolitik')} class="hover:text-ice-300">Privatlivspolitik</a></p>
+      <p><a href={url('/privatlivspolitik')} class="inline-block py-2 hover:text-ice-300">Privatlivspolitik</a></p>
     </div>
   </div>
 </footer>

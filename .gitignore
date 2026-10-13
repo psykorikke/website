@@ -17,3 +17,19 @@ npm-debug.log*
 .vscode/*
 !.vscode/extensions.json
 .idea/
+
+# original / raw images — never commit these (see AGENTS.md "Images")
+images-originals/
+*.heic
+*.HEIC
+*.heif
+*.tif
+*.tiff
+*.psd
+*.dng
+*.cr2
+*.cr3
+*.nef
+*.arw
+*.raf
+*.orf
