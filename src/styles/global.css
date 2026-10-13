@@ -5,31 +5,35 @@
 @import "@fontsource/poppins/latin-700.css";
 
 /*
- * Design tokens — warm, calm palette:
- * cream backgrounds, a tan/gold accent and near-black headings.
+ * Design tokens taken from the logo:
+ * navy (logo background), ice blue (left half / "VAERKET") and sand beige (right half / "HJERNE").
  */
 @theme {
   --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
 
-  --color-cream-50: #fbfaf9;
-  --color-cream-100: #f8f6f5;
-  --color-cream-200: #f4f1ee;
-  --color-cream-300: #e9e2db;
+  --color-navy-500: #5b6a7d;
+  --color-navy-600: #45556a;
+  --color-navy-700: #2d3c4f;
+  --color-navy-800: #222f3f;
+  --color-navy-900: #1a2431;
+  --color-navy-950: #121a24;
 
-  --color-sand-300: #e4cfb3;
-  --color-sand-400: #d1a976;
-  --color-sand-500: #bf935c;
-  --color-sand-600: #9f7744;
+  --color-ice-50: #f1f8fa;
+  --color-ice-100: #e3f1f4;
+  --color-ice-200: #c6e3ea;
+  --color-ice-300: #99cad4;
+  --color-ice-400: #6aa3bb;
+  --color-ice-500: #4f88a1;
+  --color-ice-600: #3f7189;
+  --color-ice-700: #335c70;
 
-  --color-rose-200: #e8dcda;
-  --color-rose-300: #d4c2bf;
-
-  --color-mist-100: #edf1f5;
-  --color-mist-200: #e9edf1;
-
-  --color-ink-500: #606060;
-  --color-ink-700: #333333;
-  --color-ink-900: #111111;
+  --color-sand-50: #f8f6f1;
+  --color-sand-100: #f1ede4;
+  --color-sand-200: #e4dac3;
+  --color-sand-300: #cfc5ae;
+  --color-sand-400: #bbb29e;
+  --color-sand-500: #9c917a;
+  --color-sand-600: #786e59;
 }
 
 @layer base {
@@ -37,13 +41,13 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-cream-100 text-ink-500 font-sans text-[15px] leading-relaxed tracking-[0.02em];
+    @apply bg-sand-50 text-navy-600 font-sans text-[15px] leading-relaxed tracking-[0.02em];
   }
   h1, h2, h3, h4 {
-    @apply text-ink-900 font-bold tracking-wide;
+    @apply text-navy-900 font-bold tracking-wide;
   }
   ::selection {
-    @apply bg-sand-300 text-ink-900;
+    @apply bg-ice-200 text-navy-900;
   }
 }
 
@@ -53,17 +57,17 @@
 }
 /* Small uppercase label above headings and on cards */
 @utility eyebrow {
-  @apply text-xs font-semibold uppercase tracking-[0.2em] text-sand-500;
+  @apply text-xs font-semibold uppercase tracking-[0.2em] text-ice-700;
 }
 @utility btn {
-  @apply inline-flex items-center justify-center gap-2 px-6 py-3 text-xs font-semibold uppercase tracking-[0.15em] transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sand-500;
+  @apply inline-flex items-center justify-center gap-2 px-6 py-3 text-xs font-semibold uppercase tracking-[0.15em] transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ice-500;
 }
 @utility btn-primary {
-  @apply btn bg-sand-400 text-white hover:bg-sand-600;
+  @apply btn bg-ice-300 text-navy-900 hover:bg-ice-200;
 }
 @utility btn-outline {
-  @apply btn border border-sand-400 text-sand-600 hover:bg-sand-400 hover:text-white;
+  @apply btn border border-navy-900 text-navy-900 hover:bg-navy-900 hover:text-white;
 }
 @utility link-underline {
-  @apply text-xs font-semibold uppercase tracking-[0.2em] text-sand-600 border-b border-sand-400 pb-1 transition-colors hover:text-ink-900 hover:border-ink-900;
+  @apply text-xs font-semibold uppercase tracking-[0.2em] text-navy-900 border-b-2 border-ice-300 pb-1 transition-colors hover:text-ice-700 hover:border-ice-700;
 }

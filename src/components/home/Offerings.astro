@@ -8,21 +8,21 @@ const offerings = [
     title: 'Forløb i dit eget tempo',
     text: 'Korte moduler med øvelser, du kan tage hjemmefra, når det passer dig.',
     href: '/forloeb',
-    tone: 'bg-mist-200',
+    tone: 'bg-ice-100',
   },
   {
     label: 'Én til én',
     title: 'Personlige samtaler',
     text: 'Et fortroligt rum, hvor vi sammen arbejder med netop dine udfordringer.',
     href: '/forloeb',
-    tone: 'bg-rose-200',
+    tone: 'bg-sand-200',
   },
   {
     label: 'Grupper',
     title: 'Workshops og foredrag',
     text: 'Inspirerende oplæg og workshops for arbejdspladser, skoler og foreninger.',
     href: '/forloeb',
-    tone: 'bg-cream-300',
+    tone: 'bg-ice-200',
   },
 ];
 ---
@@ -33,7 +33,7 @@ const offerings = [
 
     <div class="mt-14 grid gap-8 md:grid-cols-3">
       {offerings.map((item) => (
-        <article class="group flex flex-col bg-cream-100 transition-shadow hover:shadow-lg">
+        <article class="group flex flex-col bg-sand-50 transition-shadow hover:shadow-lg">
           <div class={`aspect-[4/3] ${item.tone} flex items-center justify-center`}>
             <span class="h-16 w-16 rounded-full bg-white/60 transition-transform duration-300 group-hover:scale-110" aria-hidden="true"></span>
           </div>

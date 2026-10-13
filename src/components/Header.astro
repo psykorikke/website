@@ -3,13 +3,10 @@ import Logo from './Logo.astro';
 import { nav, site, url } from '../config/site';
 
 const current = Astro.url.pathname.replace(/\/$/, '') || '/';
-const isActive = (href: string) => {
-  const target = url(href).replace(/\/$/, '') || '/';
-  return current === target;
-};
+const isActive = (href: string) => (url(href).replace(/\/$/, '') || '/') === current;
 ---
 
-<header class="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-[0_1px_0_rgba(0,0,0,0.05)]">
+<header class="sticky top-0 z-50 bg-navy-900 border-b border-white/5">
   <div class="container-site flex h-18 items-center justify-between gap-6">
     <Logo />
 
@@ -20,7 +17,7 @@ const isActive = (href: string) => {
             <a
               href={url(item.href)}
               aria-current={isActive(item.href) ? 'page' : undefined}
-              class="text-xs font-medium uppercase tracking-[0.18em] text-ink-700 transition-colors hover:text-sand-500 aria-[current=page]:text-sand-500"
+              class="text-xs font-medium uppercase tracking-[0.18em] text-sand-200 transition-colors hover:text-ice-300 aria-[current=page]:text-ice-300"
             >
               {item.label}
             </a>
@@ -30,19 +27,19 @@ const isActive = (href: string) => {
     </nav>
 
     <div class="flex items-center gap-4">
-      <a href={url(site.cta.href)} class="btn-primary hidden sm:inline-flex px-5 py-2.5">{site.cta.label}</a>
+      <a href={url(site.cta.href)} class="btn-primary hidden px-5 py-2.5 lg:inline-flex">{site.cta.label}</a>
 
       <!-- Mobile menu (no JavaScript needed) -->
       <details class="group relative md:hidden">
-        <summary class="flex h-10 w-10 cursor-pointer list-none items-center justify-center text-ink-900 [&::-webkit-details-marker]:hidden" aria-label="Åbn menu">
+        <summary class="flex h-10 w-10 cursor-pointer list-none items-center justify-center text-sand-100 [&::-webkit-details-marker]:hidden" aria-label="Åbn menu">
           <svg class="h-6 w-6 group-open:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
           <svg class="hidden h-6 w-6 group-open:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
         </summary>
-        <nav aria-label="Mobilmenu" class="absolute right-0 top-12 w-64 bg-white p-6 shadow-xl">
+        <nav aria-label="Mobilmenu" class="absolute right-0 top-12 w-64 bg-navy-800 p-6 shadow-xl ring-1 ring-white/10">
           <ul class="space-y-4">
             {nav.map((item) => (
               <li>
-                <a href={url(item.href)} class="block text-sm font-medium uppercase tracking-[0.15em] text-ink-700 hover:text-sand-500">
+                <a href={url(item.href)} class="block text-sm font-medium uppercase tracking-[0.15em] text-sand-100 hover:text-ice-300">
                   {item.label}
                 </a>
               </li>

@@ -4,35 +4,34 @@ import { nav, site, url } from '../config/site';
 const year = new Date().getFullYear();
 ---
 
-<footer class="bg-white">
+<footer class="bg-navy-900 text-sand-200">
   <div class="container-site grid gap-12 py-16 md:grid-cols-[2fr_1fr_1fr]">
     <div class="max-w-sm">
       <Logo />
-      <p class="mt-5 text-sm">{site.description}</p>
+      <p class="mt-5 text-sm text-sand-300">{site.description}</p>
     </div>
 
     <div>
-      <h2 class="eyebrow mb-5">Menu</h2>
+      <h2 class="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-ice-300">Menu</h2>
       <ul class="space-y-3 text-sm">
         {nav.map((item) => (
-          <li><a href={url(item.href)} class="hover:text-sand-500 transition-colors">{item.label}</a></li>
+          <li><a href={url(item.href)} class="transition-colors hover:text-ice-300">{item.label}</a></li>
         ))}
       </ul>
     </div>
 
     <div>
-      <h2 class="eyebrow mb-5">Kontakt</h2>
+      <h2 class="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-ice-300">Kontakt</h2>
       <ul class="space-y-3 text-sm">
-        <li><a href={`mailto:${site.email}`} class="hover:text-sand-500 transition-colors">{site.email}</a></li>
-        <li><a href={url(site.cta.href)} class="hover:text-sand-500 transition-colors">{site.cta.label}</a></li>
+        <li><a href={`mailto:${site.email}`} class="transition-colors hover:text-ice-300">{site.email}</a></li>
       </ul>
     </div>
   </div>
 
-  <div class="border-t border-cream-200">
-    <div class="container-site flex flex-col gap-2 py-6 text-xs sm:flex-row sm:justify-between">
+  <div class="border-t border-white/10">
+    <div class="container-site flex flex-col gap-2 py-6 text-xs text-sand-300 sm:flex-row sm:justify-between">
       <p>&copy; {year} {site.name}. Alle rettigheder forbeholdes.</p>
-      <p><a href={url('/privatlivspolitik')} class="hover:text-sand-500">Privatlivspolitik</a></p>
+      <p><a href={url('/privatlivspolitik')} class="hover:text-ice-300">Privatlivspolitik</a></p>
     </div>
   </div>
 </footer>

@@ -54,11 +54,13 @@ astro.config.mjs              Astro config (site, base, i18n, Tailwind plugin)
 
 ## Design system
 
-- Warm, calm look: cream backgrounds (`cream-*`), tan accent (`sand-*`), soft secondary tones (`rose-*`, `mist-*`) and near-black headings (`ink-*`). All colours are tokens in `src/styles/global.css` — use them instead of arbitrary hex values.
-- Font: Poppins, **self-hosted** via `@fontsource/poppins`. Do not load fonts or other assets from Google Fonts or third-party CDNs (GDPR).
-- Reusable utilities: `container-site`, `eyebrow` (small uppercase label), `btn-primary`, `btn-outline`, `link-underline`.
+- Colours come from the logo (`src/assets/logo.png`): **navy** (`navy-*`, logo background `#1a2431`), **ice blue** (`ice-*`, `#99cad4`) and **sand beige** (`sand-*`, `#bbb29e`). All colours are tokens in `src/styles/global.css` — use them instead of arbitrary hex values.
+- Header, hero and footer are navy (`bg-navy-900`), matching the logo's own background exactly so the logo blends in. Keep the header fully opaque for the same reason. Content sections use light sand backgrounds (`sand-50` / `sand-100` / white).
+- Logo assets: `src/assets/logo.png` (full logo) and `src/assets/brain-mark.png` (brain only, used in header/footer). Render them with Astro's `<Image>` so they are optimised. Favicons and the share image (`og-image.jpg`) live in `public/`.
+- Text on light backgrounds: headings `navy-900`, body `navy-600`, small labels `ice-700` (for contrast). Light text on navy: `sand-200` body, `ice-300` accents.
+- Font: Poppins (Latin subset), **self-hosted** via `@fontsource/poppins`. Do not load fonts or other assets from Google Fonts or third-party CDNs (GDPR).
+- Reusable utilities: `container-site`, `eyebrow` (small uppercase label), `btn-primary` (ice blue), `btn-outline` (navy), `link-underline`.
 - Headings are bold with wide letter-spacing; hero/page titles are uppercase. Buttons are flat and square.
-- Sections alternate background colours (cream-100 / cream-200 / white) for rhythm.
 - Build internal links with `url()` from `src/config/site.ts`.
 
 ## Commands
@@ -76,6 +78,7 @@ astro.config.mjs              Astro config (site, base, i18n, Tailwind plugin)
 1. Run `npm run build` and `npm run check` and make sure both succeed before committing.
 2. Never commit `dist/`, `.astro/` or `node_modules/`.
 3. Keep the site fully static — no server adapters or runtime secrets.
+   **There is no backend: do not add forms** (contact, newsletter, booking, etc.). Use `mailto:` links to the address in `src/config/site.ts` instead.
 4. New pages use `src/layouts/Layout.astro` and Danish content.
 5. Changes to `main` go live automatically, so keep `main` deployable.
 6. Always use Astro and Tailwind CSS for the website (see *Tech stack*).
