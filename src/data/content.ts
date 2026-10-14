@@ -32,9 +32,9 @@ export const specialer: Speciale[] = [
 
 /** "Om mig": Rikke's background, one line per area. */
 export const erfaring = [
-  'Tre års erfaring som operativ brandmand',
+  'Tidligere operativ brandmand',
   'Bred erfaring fra pædagogiske tilbud i Aalborg Kommune',
-  'Bestyrelsesmedlem i en frivillig organisation',
+  'Erfaring fra frivilligt foreningsarbejde',
 ];
 
 /** The three learning spaces of a workshop, shown in the hero. */
