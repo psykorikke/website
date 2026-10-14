@@ -1,15 +1,19 @@
 @import "tailwindcss";
-@import "@fontsource/poppins/latin-400.css";
-@import "@fontsource/poppins/latin-500.css";
-@import "@fontsource/poppins/latin-600.css";
-@import "@fontsource/poppins/latin-700.css";
+@import "@fontsource/playfair-display/latin-500.css";
+@import "@fontsource/playfair-display/latin-600.css";
+@import "@fontsource/playfair-display/latin-500-italic.css";
+@import "@fontsource/source-sans-3/latin-400.css";
+@import "@fontsource/source-sans-3/latin-600.css";
+@import "@fontsource/source-sans-3/latin-700.css";
 
 /*
  * Design tokens taken from the logo:
  * navy (logo background), ice blue (left half / "VAERKET") and sand beige (right half / "HJERNE").
  */
 @theme {
-  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  /* Headings: Playfair Display (serif). Body and UI: Source Sans 3. */
+  --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
 
   --color-navy-500: #5b6a7d;
   --color-navy-600: #45556a;
@@ -41,10 +45,10 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-sand-50 text-navy-600 font-sans text-[15px] leading-relaxed tracking-[0.02em];
+    @apply bg-sand-50 text-navy-600 font-sans text-base leading-relaxed;
   }
   h1, h2, h3, h4 {
-    @apply text-navy-900 font-bold tracking-wide;
+    @apply text-navy-900 font-serif font-semibold tracking-normal;
   }
   ::selection {
     @apply bg-ice-200 text-navy-900;

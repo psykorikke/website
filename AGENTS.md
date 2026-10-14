@@ -109,10 +109,10 @@ astro.config.mjs              Astro config (site, image breakpoints, i18n, Tailw
 - Header, hero and footer are navy (`bg-navy-900`), matching the logo's own background exactly so the logo blends in. Keep the header fully opaque for the same reason. Content sections use light sand backgrounds (`sand-50` / `sand-100` / white).
 - Logo assets: `src/assets/logo.png` (full logo) and `src/assets/brain-mark.png` (brain only, used in header/footer). Render them with Astro's `<Image>` so they are optimised. Favicons and the share image (`og-image.jpg`) live in `public/`.
 - Text on light backgrounds: headings `navy-900`, body `navy-600`, small labels `ice-700` (for contrast). Light text on navy: `sand-200` body, `ice-300` accents.
-- Font: Poppins (Latin subset), **self-hosted** via `@fontsource/poppins`. Do not load fonts or other assets from Google Fonts or third-party CDNs (GDPR).
+- Fonts: **Playfair Display** for headings (`font-serif`, applied to h1–h4 in `global.css`) and **Source Sans 3** for body text, labels and buttons (`font-sans`). Latin subsets, **self-hosted** via `@fontsource/playfair-display` and `@fontsource/source-sans-3`. Do not load fonts or other assets from Google Fonts or third-party CDNs (GDPR). Only load weights that are used (Playfair 500 italic/600, Source Sans 400/600/700).
 - Reusable utilities: `container-site`, `eyebrow` (small uppercase label), `btn-primary` (ice blue), `btn-outline` (navy), `link-underline`.
 - The header has only the logo and a "Kontakt" button that jumps to `#kontakt`.
-- Headings are bold with wide letter-spacing; hero/page titles are uppercase. Buttons are flat and square.
+- Headings are in Playfair Display, sentence case (not uppercase), semibold, normal letter-spacing; the highlighted part of the hero title is italic ice blue. Small labels, buttons and the logo wordmark stay uppercase with wide letter-spacing in Source Sans 3. Buttons are flat and square.
 - Build internal links with `url()` from `src/config/site.ts`.
 
 ## Commands
