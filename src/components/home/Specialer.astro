@@ -12,12 +12,15 @@ const photoFor = (slug: string) =>
   Object.entries(photos).find(([path]) => path.split('/').pop()?.replace(/\.[^.]+$/, '') === slug)?.[1].default;
 
 const tones = ['bg-ice-200', 'bg-sand-200', 'bg-ice-100'];
-// Photos: Unsplash licence (free for commercial use).
-// brandvaesen – Nejc Soklič, botilbud – Annie Spratt, frivillige – Adrià Crehuet Cano.
+// Photos: brandvaesen – provided by Rikke; botilbud – Annie Spratt, frivillige – Adrià Crehuet Cano (Unsplash licence).
 const alts: Record<string, string> = {
-  brandvaesen: 'Brandfolk i fuld udrustning med hjelme',
+  brandvaesen: 'Røgdykkere i fuld udrustning foran en kraftig brand',
   botilbud: 'To personer laver mad sammen i et hjemligt køkken',
   frivillige: 'En frivillig træner samler et børnehold i fodboldklubben',
+};
+// Crop focus per photo (CSS object-position) – the fire service photo is portrait, so show the lower part.
+const focus: Record<string, string> = {
+  brandvaesen: 'center 68%',
 };
 ---
 
@@ -36,7 +39,8 @@ const alts: Record<string, string> = {
                   src={photo}
                   alt={alts[s.slug] ?? s.title}
                   sizes="(min-width: 1152px) 360px, (min-width: 640px) 33vw, 100vw"
-                  class="h-full w-full object-cover"
+                  class="absolute inset-0 h-full w-full object-cover"
+                  style={focus[s.slug] ? `object-position:${focus[s.slug]}` : undefined}
                 />
               ) : (
                 <div class={`flex h-full w-full items-center justify-center ${tones[i % tones.length]}`}>
