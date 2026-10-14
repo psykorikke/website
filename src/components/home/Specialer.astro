@@ -60,11 +60,17 @@ const focus: Record<string, string> = {
       })}
     </div>
 
-    {site.kunder.length > 0 && (
-      <div class="mt-10 flex flex-col items-center justify-center gap-3 bg-navy-900 px-6 py-6 text-center sm:flex-row sm:gap-5">
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-ice-300">Tidligere kunde</p>
-        <span class="hidden h-6 w-px bg-white/20 sm:block" aria-hidden="true"></span>
-        <p class="font-serif text-2xl font-semibold text-white sm:text-3xl">{site.kunder.join(' · ')}</p>
+    {site.samarbejdspartnere.length > 0 && (
+      <div class="mt-10 bg-navy-900 px-6 py-7 text-center">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-ice-300">Tidligere samarbejdspartnere</p>
+        <ul class="mt-4 flex flex-col items-center justify-center gap-x-8 gap-y-3 md:flex-row md:flex-wrap">
+          {site.samarbejdspartnere.map((navn, i) => (
+            <li class="flex items-center gap-8">
+              {i > 0 && <span class="hidden h-6 w-px bg-white/20 md:block" aria-hidden="true"></span>}
+              <span class="font-serif text-xl font-semibold text-white sm:text-2xl">{navn}</span>
+            </li>
+          ))}
+        </ul>
       </div>
     )}
   </div>

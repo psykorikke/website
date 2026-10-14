@@ -11,8 +11,8 @@ export const site = {
   email: 'kontakt@hjernevaerket.dk',
   cvr: '45348180',
   autorisationsId: '0HK46',
-  /** Former clients highlighted on the page (provided by Rikke). */
-  kunder: ['Beredskab Øst'],
+  /** Former partners highlighted on the page (provided by Rikke). */
+  samarbejdspartnere: ['Beredskab Øst', 'Beredskabsstyrelsen, Center for Uddannelse'],
 };
 
 /** Prefix an internal path with the site's base path (needed on GitHub Pages). */
