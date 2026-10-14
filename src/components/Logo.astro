@@ -5,14 +5,16 @@ import { site, url } from '../config/site';
 
 interface Props {
   class?: string;
+  /** Use light wordmark colours (for the navy footer). */
+  onDark?: boolean;
 }
-const { class: className = '' } = Astro.props;
+const { class: className = '', onDark = false } = Astro.props;
 ---
 
-<!-- For use on navy backgrounds: the mark's own background is navy-900. -->
+<!-- The brain mark has a transparent background (fissures included), so it works on light and dark backgrounds. -->
 <a href={url('/')} class={`inline-flex min-w-0 items-center gap-2 sm:gap-3 ${className}`} aria-label={`${site.name} – forside`}>
-  <Image src={brainMark} alt="" width={44} height={44} class="h-9 w-9 shrink-0 sm:h-11 sm:w-11" loading="eager" />
+  <Image src={brainMark} alt="" width={40} height={44} class="h-9 w-auto shrink-0 sm:h-11" loading="eager" />
   <span class="text-base font-semibold uppercase tracking-[0.06em] sm:text-lg sm:tracking-[0.1em]">
-    <span class="text-sand-400">{site.wordmark[0]}</span><span class="text-ice-300">{site.wordmark[1]}</span>
+    <span class={onDark ? "text-sand-400" : "text-sand-600"}>{site.wordmark[0]}</span><span class={onDark ? "text-ice-300" : "text-ice-700"}>{site.wordmark[1]}</span>
   </span>
 </a>
