@@ -41,17 +41,17 @@ export const erfaring = [
 export const laeringsrum = [
   {
     title: 'Vidensrum',
-    text: 'Relevant teori og forståelsesmodeller, der giver jer et fælles sprog.',
+    text: 'Hvad er baggrunden for vores adfærd? Teori og forståelsesmodeller sætter adfærden ind i en ramme, så den giver mening for os.',
     icon: 'M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5zM4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5',
   },
   {
     title: 'Praksisrum',
-    text: 'Konkrete værktøjer og arbejdsmetoder, som I træner sammen.',
+    text: 'Konkrete værktøjer og casearbejde. Gennem cases kommer vi nærmere en fælles forståelse, udvider horisonten og bliver klogere på hinanden.',
     icon: 'M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z',
   },
   {
     title: 'Refleksionsrum',
-    text: 'Tid til eftertanke og erfaringsudveksling – med bro til jeres hverdag.',
+    text: 'Erfaringsudveksling: Hvad har vi fået øje på – og hvordan bruger vi den nye viden i hverdagen?',
     icon: 'M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z',
   },
 ];
