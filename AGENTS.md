@@ -80,7 +80,7 @@ The site must work well on **mobile phones, tablets and desktop**.
   - no horizontal scrolling or content cut off at any width (long words/e-mail addresses must wrap);
   - tap targets (links, buttons, menu toggles) at least ~32 px high on mobile, with spacing between them;
   - body text at least 15 px; headings scale down on small screens;
-  - header (logo + Kontakt button) fits on one line at 320 px.
+  - header (logo + menu toggle) fits on one line at 320 px; the open mobile menu has full-width tap targets.
   - the three boxes stand side by side from 640 px (`sm`) and stack on phones.
 - Images must be responsive (`<Image>` with `sizes`, see *Images*) — never fixed pixel widths wider than a phone screen.
 
@@ -112,7 +112,7 @@ astro.config.mjs              Astro config (site, image breakpoints, i18n, Tailw
 - Text on light backgrounds: headings `navy-900`, body `navy-600`, small labels `ice-700` (for contrast). Light text on navy (footer, client band): `sand-200`/`sand-300` body, `ice-300` accents.
 - Fonts: **Playfair Display** for headings (`font-serif`, applied to h1–h4 in `global.css`) and **Source Sans 3** for body text, labels and buttons (`font-sans`). Latin subsets, **self-hosted** via `@fontsource/playfair-display` and `@fontsource/source-sans-3`. Do not load fonts or other assets from Google Fonts or third-party CDNs (GDPR). Only load weights that are used (Playfair 600, Source Sans 400/600/700).
 - Reusable utilities: `container-site`, `eyebrow` (small uppercase label), `btn-primary` (ice blue), `btn-outline` (navy), `link-underline`.
-- The header has only the logo and a "Kontakt" button that jumps to `#kontakt`.
+- The header (sticky) has the logo and an in-page navigation that smooth-scrolls to the sections: **Workshop** → `#workshop` (the "Specialiseret i tre områder" boxes), **Om mig** → `#om-mig`, **Tidligere samarbejdspartnere** → `#samarbejdspartnere` (the navy band) and **Kontakt** → `#kontakt` (navy button). Links are inline from `lg`; below that a "Menu" toggle (`<details>`, works without JS; a small script closes it after a click/Escape) opens them as a dropdown. Keep section ids and nav links in sync, and give every target a `scroll-mt-*` so it is not hidden under the sticky header. Do not add more nav items unless asked.
 - Headings are in Playfair Display, sentence case (not uppercase), semibold, normal letter-spacing; the highlighted part of the hero title ("mentale højrisikoerhverv") is ice blue, no italics, and the title is always exactly three lines: "Psykologi med blik for" / "særlige belastninger i" / "mentale højrisikoerhverv" (block spans, no hyphenation). Do not add decorative splashes or colour blots. Small labels, buttons and the logo wordmark stay uppercase with wide letter-spacing in Source Sans 3. Buttons are flat and square.
 - Build internal links with `url()` from `src/config/site.ts`.
 

@@ -24,7 +24,7 @@ const focus: Record<string, string> = {
 };
 ---
 
-<section class="bg-sand-50 py-16 md:py-24" aria-labelledby="specialer-titel">
+<section id="workshop" class="scroll-mt-18 bg-sand-50 py-16 md:py-24" aria-labelledby="specialer-titel">
   <div class="container-site">
     <h2 id="specialer-titel" class="text-center text-2xl sm:text-3xl">Specialiseret i tre områder</h2>
 
@@ -61,7 +61,7 @@ const focus: Record<string, string> = {
     </div>
 
     {site.samarbejdspartnere.length > 0 && (
-      <div class="mt-10 bg-navy-900 px-6 py-7 text-center">
+      <div id="samarbejdspartnere" class="mt-10 scroll-mt-24 bg-navy-900 px-6 py-7 text-center">
         <p class="text-xs font-semibold uppercase tracking-[0.2em] text-ice-300">Tidligere samarbejdspartnere</p>
         <ul class="mt-4 flex flex-col items-center justify-center gap-x-8 gap-y-3 md:flex-row md:flex-wrap">
           {site.samarbejdspartnere.map((navn, i) => (
