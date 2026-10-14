@@ -5,7 +5,7 @@ export const site = {
   // Wordmark is split in two so the second half can be rendered bold.
   wordmark: ['Hjerne', 'vaerket'] as const,
   description:
-    'Oplæg og workshops om mennesket på arbejdspladsen for kollega- og ledergrupper i brandvæsen, pædagogiske botilbud og frivillige organisationer – ved psykolog Rikke Gundorff.',
+    'Oplæg og workshops om mennesket på arbejdspladsen for kollega- og ledergrupper i beredskab, pædagogiske botilbud og frivillige organisationer – ved psykolog Rikke Gundorff.',
   owner: 'Rikke Gundorff',
   ownerTitle: 'Psykolog',
   email: 'kontakt@hjernevaerket.dk',
