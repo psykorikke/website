@@ -13,7 +13,7 @@ export const specialer: Speciale[] = [
   {
     slug: 'beredskab',
     title: 'Beredskab',
-    text: 'Personaledage og workshops for brandhold, holdledere og indsatsledere. Om psykologisk tryghed, skjulte skyggestrukturer og sammenhold i en hverdag, hvor man er afhængig af hinanden dag og nat.',
+    text: 'Personaledage og workshops for brandhold, holdledere og indsatsledere. Om psykologisk tryghed, skyggestrukturer og sammenhold i en hverdag, hvor man er afhængig af hinanden dag og nat.',
     icon: 'M12 3c.8 2.9 4.5 4.7 4.5 9a4.5 4.5 0 0 1-9 0c0-2.2 1.1-3.6 2.3-4.6.1 1.9.9 3.1 2.2 3.4C11.3 8.6 10.7 6 12 3z',
   },
   {
