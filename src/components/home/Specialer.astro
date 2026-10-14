@@ -2,7 +2,6 @@
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import Icon from '../Icon.astro';
-import Splash from '../Splash.astro';
 import { site } from '../../config/site';
 import { specialer } from '../../data/content';
 
@@ -22,10 +21,8 @@ const alts: Record<string, string> = {
 };
 ---
 
-<section class="relative overflow-hidden bg-sand-50 py-16 md:py-24" aria-labelledby="specialer-titel">
-  <Splash class="-right-24 -top-16 h-72 w-72 text-ice-300 opacity-[0.12] md:h-96 md:w-96" rotate={30} />
-  <Splash class="-bottom-24 -left-28 h-80 w-80 text-sand-300 opacity-[0.25]" flip rotate={-10} />
-  <div class="container-site relative">
+<section class="bg-sand-50 py-16 md:py-24" aria-labelledby="specialer-titel">
+  <div class="container-site">
     <h2 id="specialer-titel" class="text-center text-2xl sm:text-3xl">Specialiseret i tre områder</h2>
 
     <div class="mt-12 grid gap-6 sm:grid-cols-3 sm:gap-4 lg:gap-6">

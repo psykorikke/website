@@ -2,22 +2,19 @@
 import { Image } from 'astro:assets';
 import logo from '../../assets/logo.png';
 import Icon from '../Icon.astro';
-import Splash from '../Splash.astro';
 import { site } from '../../config/site';
 import { laeringsrum } from '../../data/content';
 ---
 
 <!-- Navy hero: the logo's own background is navy-900, so it blends into the section. -->
-<section class="relative overflow-hidden bg-navy-900">
-  <Splash class="-left-24 -top-20 h-80 w-80 text-ice-300 opacity-[0.06] md:h-[28rem] md:w-[28rem]" rotate={-20} />
-  <Splash class="-bottom-28 -right-20 h-72 w-72 text-sand-400 opacity-[0.07] md:h-96 md:w-96" flip rotate={15} />
-  <div class="container-site relative grid items-center gap-10 py-14 md:grid-cols-[3fr_2fr] md:py-20">
+<section class="bg-navy-900">
+  <div class="container-site grid items-center gap-10 py-14 md:grid-cols-[3fr_2fr] md:py-20">
     <div class="max-w-2xl">
       <p class="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-ice-300">
         {site.ownerTitle} {site.owner}
       </p>
       <h1 class="text-3xl leading-tight break-words hyphens-auto text-white sm:text-4xl lg:text-5xl">
-        Psykologi med blik for særlige belastninger i <span class="font-medium italic text-ice-300">mentale højrisikoerhverv</span>
+        Psykologi med blik for særlige belastninger i <span class="text-ice-300">mentale højrisikoerhverv</span>
       </h1>
       <p class="mt-6 text-base text-sand-200 sm:text-lg">
         Oplæg og workshops for kollega- og ledergrupper om mennesket på arbejdspladsen. Gennem et vidensrum, et praksisrum og et refleksionsrum bliver I klogere på jeres samspil – og står stærkere sammen.
