@@ -1,12 +1,10 @@
 ---
-import Icon from '../Icon.astro';
 import { site } from '../../config/site';
-import { laeringsrum } from '../../data/content';
 ---
 
 <!-- Light ice-blue hero with navy text. -->
 <section class="bg-gradient-to-b from-ice-100 to-ice-50">
-  <div class="container-site grid gap-10 py-14 md:py-20">
+  <div class="container-site py-14 md:py-20">
     <div class="max-w-3xl">
       <p class="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-ice-700">
         {site.ownerTitle} {site.owner}
@@ -20,19 +18,5 @@ import { laeringsrum } from '../../data/content';
         Oplæg og workshops for kollega- og ledergrupper om mennesket på arbejdspladsen. Gennem et vidensrum, et praksisrum og et refleksionsrum bliver I klogere på jeres samspil og står stærkere sammen.
       </p>
     </div>
-
-    <ul class="grid gap-4 md:grid-cols-3" aria-label="Workshoppens tre læringsrum">
-      {laeringsrum.map((r) => (
-        <li class="flex gap-4 bg-white p-5 shadow-sm ring-1 ring-ice-200 hyphens-auto break-words md:flex-col md:gap-3 lg:flex-row lg:gap-4">
-          <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-navy-900 text-ice-300">
-            <Icon path={r.icon} class="h-5 w-5" />
-          </span>
-          <span>
-            <span class="block font-semibold text-navy-900">{r.title}</span>
-            <span class="mt-1 block text-sm text-navy-600">{r.text}</span>
-          </span>
-        </li>
-      ))}
-    </ul>
   </div>
 </section>
