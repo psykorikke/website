@@ -94,7 +94,7 @@ src/assets/images/            Downscaled photos produced by `npm run images` (co
 src/config/site.ts            Site name, owner, e-mail, url() helper
 src/data/content.ts           The three specialisation boxes, the "Om mig" experience list and the workshop's three learning spaces
 src/layouts/Layout.astro      Page shell (head/meta, header, footer)
-src/components/               Header, Footer, Logo, Icon (line icon from a path), CtaBand (#kontakt, e-mail)
+src/components/               Header, Footer, Logo, Icon (line icon from a path), Splash (decorative blot), CtaBand (#kontakt, e-mail)
 src/components/home/          Landing page sections: Hero, Specialer (the three boxes), OmMig
 src/pages/                    index (the landing page) and 404
 src/styles/global.css         Tailwind entry, design tokens (@theme) and utilities
@@ -112,6 +112,7 @@ astro.config.mjs              Astro config (site, image breakpoints, i18n, Tailw
 - Fonts: **Playfair Display** for headings (`font-serif`, applied to h1–h4 in `global.css`) and **Source Sans 3** for body text, labels and buttons (`font-sans`). Latin subsets, **self-hosted** via `@fontsource/playfair-display` and `@fontsource/source-sans-3`. Do not load fonts or other assets from Google Fonts or third-party CDNs (GDPR). Only load weights that are used (Playfair 500 italic/600, Source Sans 400/600/700).
 - Reusable utilities: `container-site`, `eyebrow` (small uppercase label), `btn-primary` (ice blue), `btn-outline` (navy), `link-underline`.
 - The header has only the logo and a "Kontakt" button that jumps to `#kontakt`.
+- Subtle decorative splashes (`src/components/Splash.astro`): organic paint blots in brand colours at low opacity, placed behind sections (parent must be `relative overflow-hidden`, content `relative`). Keep them subtle — never behind text in a way that hurts contrast — and decorative only (`aria-hidden`).
 - Headings are in Playfair Display, sentence case (not uppercase), semibold, normal letter-spacing; the highlighted part of the hero title is italic ice blue. Small labels, buttons and the logo wordmark stay uppercase with wide letter-spacing in Source Sans 3. Buttons are flat and square.
 - Build internal links with `url()` from `src/config/site.ts`.
 

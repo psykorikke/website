@@ -1,0 +1,32 @@
+---
+// Subtle decorative "splash": an organic paint blot with a few droplets.
+// Purely decorative (aria-hidden). Place inside a `relative overflow-hidden` parent.
+interface Props {
+  /** Tailwind classes for position, size, colour (text-*) and opacity. */
+  class?: string;
+  /** Mirror horizontally for variety. */
+  flip?: boolean;
+  /** Rotation in degrees. */
+  rotate?: number;
+}
+const { class: className = '', flip = false, rotate = 0 } = Astro.props;
+const transform = `${flip ? 'scaleX(-1) ' : ''}rotate(${rotate}deg)`;
+---
+
+<svg
+  class={`pointer-events-none absolute select-none ${className}`}
+  style={`transform:${transform}`}
+  viewBox="0 0 400 400"
+  fill="currentColor"
+  aria-hidden="true"
+  focusable="false"
+>
+  <path d="M206 58c38-6 63 22 92 40 27 17 64 22 74 55 10 34-20 58-24 90-4 33 15 70-9 96-25 27-65 12-99 21-35 9-63 41-98 30-36-11-44-53-66-80-21-26-55-45-55-80 0-36 37-55 56-84 20-30 26-74 60-86 23-8 46 2 69-2z" />
+  <path d="M310 70c9-14 27-21 39-13 11 8 7 25-4 33-12 9-28 9-35 0-4-6-4-13 0-20z" />
+  <circle cx="356" cy="132" r="9" />
+  <circle cx="64" cy="312" r="14" />
+  <circle cx="38" cy="268" r="6" />
+  <circle cx="300" cy="352" r="8" />
+  <circle cx="330" cy="330" r="4" />
+  <circle cx="120" cy="44" r="5" />
+</svg>
