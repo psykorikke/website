@@ -82,13 +82,22 @@ const focus: Record<string, string> = {
     {site.samarbejdspartnere.length > 0 && (
       <div id="samarbejdspartnere" class="mt-10 scroll-mt-24 bg-navy-900 px-6 py-7 text-center">
         <p class="text-xs font-semibold uppercase tracking-[0.2em] text-ice-300">Tidligere samarbejdspartnere</p>
-        <ul class="mt-4 flex flex-col items-center justify-center gap-x-8 gap-y-3 md:flex-row md:flex-wrap">
-          {site.samarbejdspartnere.map((navn, i) => (
-            <li class="flex items-center gap-8">
-              {i > 0 && <span class="hidden h-6 w-px bg-white/20 md:block" aria-hidden="true"></span>}
-              <span class="font-serif text-xl font-semibold text-white sm:text-2xl">{navn}</span>
-            </li>
-          ))}
+        <!-- Each partner is separated by an ice-blue line (vertical on md+, short horizontal on phones).
+             A part after ", " (e.g. "Center for Uddannelse") is shown as a small subtitle. -->
+        <ul class="mt-5 flex flex-col items-center justify-center md:flex-row md:items-stretch">
+          {site.samarbejdspartnere.map((navn, i) => {
+            const [hoved, ...rest] = navn.split(', ');
+            const under = rest.join(', ');
+            return (
+              <li class="flex flex-col items-center md:flex-row">
+                {i > 0 && <span class="my-4 h-0.5 w-12 bg-ice-300 md:mx-10 md:my-0 md:h-auto md:w-0.5 md:self-stretch" aria-hidden="true"></span>}
+                <span class="flex flex-col items-center justify-center">
+                  <span class="font-serif text-xl font-semibold text-white sm:text-2xl">{hoved}</span>
+                  {under && <span class="mt-1 text-xs font-semibold uppercase tracking-[0.2em] text-sand-300">{under}</span>}
+                </span>
+              </li>
+            );
+          })}
         </ul>
       </div>
     )}
