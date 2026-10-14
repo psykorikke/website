@@ -113,7 +113,7 @@ astro.config.mjs              Astro config (site, image breakpoints, i18n, Tailw
 - Fonts: **Playfair Display** for headings (`font-serif`, applied to h1–h4 in `global.css`) and **Source Sans 3** for body text, labels and buttons (`font-sans`). Latin subsets, **self-hosted** via `@fontsource/playfair-display` and `@fontsource/source-sans-3`. Do not load fonts or other assets from Google Fonts or third-party CDNs (GDPR). Only load weights that are used (Playfair 600, Source Sans 400/600/700).
 - Reusable utilities: `container-site`, `eyebrow` (small uppercase label), `btn-primary` (ice blue), `btn-outline` (navy), `link-underline`.
 - The header has only the logo and a "Kontakt" button that jumps to `#kontakt`.
-- Headings are in Playfair Display, sentence case (not uppercase), semibold, normal letter-spacing; the highlighted part of the hero title ("mentale højrisikoerhverv") is ice blue, no italics, kept on one line (`whitespace-nowrap`) and the title is never hyphenated. Do not add decorative splashes or colour blots. Small labels, buttons and the logo wordmark stay uppercase with wide letter-spacing in Source Sans 3. Buttons are flat and square.
+- Headings are in Playfair Display, sentence case (not uppercase), semibold, normal letter-spacing; the highlighted part of the hero title ("mentale højrisikoerhverv") is ice blue, no italics, and the title is always exactly three lines: "Psykologi med blik for" / "særlige belastninger i" / "mentale højrisikoerhverv" (block spans, no hyphenation). Do not add decorative splashes or colour blots. Small labels, buttons and the logo wordmark stay uppercase with wide letter-spacing in Source Sans 3. Buttons are flat and square.
 - Build internal links with `url()` from `src/config/site.ts`.
 
 ## Commands
