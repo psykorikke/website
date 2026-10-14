@@ -12,11 +12,12 @@ const photoFor = (slug: string) =>
   Object.entries(photos).find(([path]) => path.split('/').pop()?.replace(/\.[^.]+$/, '') === slug)?.[1].default;
 
 const tones = ['bg-ice-200', 'bg-sand-200', 'bg-ice-100'];
-// Photos: beredskab – provided by Rikke; botilbud – Annie Spratt, frivillige – Adrià Crehuet Cano (Unsplash licence).
+// Photos: beredskab – provided by Rikke; botilbud – Nathan Anderson, frivillige – Emilio Geremia (Unsplash licence).
+// The two Unsplash photos are colour-graded to match the fire service photo (navy shadows, warm highlights).
 const alts: Record<string, string> = {
   beredskab: 'Røgdykkere i fuld udrustning foran en kraftig brand',
-  botilbud: 'To personer laver mad sammen i et hjemligt køkken',
-  frivillige: 'En frivillig træner samler et børnehold i fodboldklubben',
+  botilbud: 'En ældre mand og en ung mand med Downs syndrom griner sammen',
+  frivillige: 'En frivillig træner samler et drengehold i fodboldklubben inden kamp',
 };
 // Crop focus per photo (CSS object-position) – the fire service photo is portrait, so show the lower part.
 const focus: Record<string, string> = {
