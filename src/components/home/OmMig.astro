@@ -1,5 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import Icon from '../Icon.astro';
+// Cover of Rikke's master's thesis (her own document; cropped so the student number is not shown).
+import specialeForside from '../../assets/images/om-mig/speciale-forside.jpg';
 import { site } from '../../config/site';
 import { erfaring, specialer } from '../../data/content';
 ---
@@ -19,15 +22,32 @@ import { erfaring, specialer } from '../../data/content';
       </p>
     </div>
 
-    <ul class="space-y-4">
-      {erfaring.map((item, i) => (
-        <li class="flex items-center gap-4 bg-sand-50 p-5 ring-1 ring-sand-200">
-          <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-navy-900 text-ice-300">
-            <Icon path={specialer[i].icon} class="h-5 w-5" />
-          </span>
-          <span class="text-navy-900">{item}</span>
-        </li>
-      ))}
-    </ul>
+    <div class="min-w-0 space-y-4">
+      <ul class="space-y-4">
+        {erfaring.map((item, i) => (
+          <li class="flex items-center gap-4 bg-sand-50 p-5 ring-1 ring-sand-200">
+            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-navy-900 text-ice-300">
+              <Icon path={specialer[i].icon} class="h-5 w-5" />
+            </span>
+            <span class="text-navy-900">{item}</span>
+          </li>
+        ))}
+      </ul>
+
+      <figure class="flex flex-col items-start gap-4 bg-navy-900 p-5 min-[420px]:flex-row min-[420px]:items-center sm:gap-6">
+        <Image
+          src={specialeForside}
+          alt="Forsiden af specialeafhandlingen Fra kollega til leder: en brandmand ved en brandbil, spejlet i en vandpyt"
+          widths={[120, 180, 240, 320]}
+          sizes="(min-width: 640px) 128px, 96px"
+          class="w-28 shrink-0 shadow-lg min-[420px]:w-24 ring-1 ring-white/10 sm:w-32"
+        />
+        <figcaption class="min-w-0 hyphens-auto break-words">
+          <span class="block text-xs font-semibold uppercase tracking-[0.15em] text-ice-300 sm:tracking-[0.2em]">Specialeafhandling</span>
+          <span class="mt-2 block font-serif text-xl font-semibold text-white sm:text-2xl">Fra kollega til leder</span>
+          <span class="mt-2 block text-sm text-sand-200">Et organisationspsykologisk perspektiv på holdlederrollen. Aalborg Universitet, 2025.</span>
+        </figcaption>
+      </figure>
+    </div>
   </div>
 </section>
