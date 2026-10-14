@@ -1,7 +1,4 @@
 ---
-import { Image } from 'astro:assets';
-// Temporary hero image: the brain mark. Planned: replace with a portrait photo of Rikke.
-import logo from '../../assets/brain-mark.png';
 import Icon from '../Icon.astro';
 import { site } from '../../config/site';
 import { laeringsrum } from '../../data/content';
@@ -9,8 +6,8 @@ import { laeringsrum } from '../../data/content';
 
 <!-- Light ice-blue hero with navy text. -->
 <section class="bg-gradient-to-b from-ice-100 to-ice-50">
-  <div class="container-site grid items-center gap-10 py-14 md:grid-cols-[3fr_2fr] md:py-20">
-    <div class="max-w-2xl">
+  <div class="container-site grid gap-10 py-14 md:py-20">
+    <div class="max-w-3xl">
       <p class="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-ice-700">
         {site.ownerTitle} {site.owner}
       </p>
@@ -22,19 +19,7 @@ import { laeringsrum } from '../../data/content';
       </p>
     </div>
 
-    <div class="mx-auto w-full max-w-[12rem] md:max-w-[16rem]">
-      <Image
-        src={logo}
-        alt="Illustration af en hjerne med en blå og en sandfarvet halvdel"
-        widths={[200, 327]}
-        sizes="(min-width: 768px) 16rem, 12rem"
-        loading="eager"
-        fetchpriority="high"
-        class="h-auto w-full"
-      />
-    </div>
-
-    <ul class="grid gap-4 md:col-span-2 md:grid-cols-3" aria-label="Workshoppens tre læringsrum">
+    <ul class="grid gap-4 md:grid-cols-3" aria-label="Workshoppens tre læringsrum">
       {laeringsrum.map((r) => (
         <li class="flex gap-4 bg-white p-5 shadow-sm ring-1 ring-ice-200 hyphens-auto break-words md:flex-col md:gap-3 lg:flex-row lg:gap-4">
           <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-navy-900 text-ice-300">
