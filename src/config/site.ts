@@ -8,7 +8,7 @@ export const site = {
     'Oplæg og workshops om mennesket på arbejdspladsen for kollega- og ledergrupper i beredskab, pædagogiske botilbud og frivillige organisationer – ved psykolog Rikke Gundorff.',
   owner: 'Rikke Gundorff',
   ownerTitle: 'Psykolog',
-  email: 'kontakt@hjernevaerket.dk',
+  email: 'Hjernevaerket@gmail.com',
   cvr: '45348180',
   autorisationsId: '0HK46',
   /** Former partners highlighted on the page (provided by Rikke). */
