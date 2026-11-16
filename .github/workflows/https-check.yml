@@ -1,0 +1,28 @@
+name: HTTPS diagnostics (temporary)
+on:
+  push:
+    branches: [https-check]
+permissions:
+  pages: read
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: DNS
+        run: |
+          for t in A AAAA CNAME CAA; do echo "== hjernevaerket.dk $t"; dig +short hjernevaerket.dk $t; done
+          for t in A CNAME; do echo "== www.hjernevaerket.dk $t"; dig +short www.hjernevaerket.dk $t; done
+          echo "== NS"; dig +short hjernevaerket.dk NS
+      - name: HTTP / HTTPS
+        run: |
+          echo "== http"; curl -sSI --max-time 20 http://hjernevaerket.dk | head -5 || true
+          echo "== https"; curl -sSI --max-time 20 https://hjernevaerket.dk 2>&1 | head -5 || true
+          echo "== cert"; echo | openssl s_client -connect hjernevaerket.dk:443 -servername hjernevaerket.dk 2>/dev/null | openssl x509 -noout -subject -issuer -dates 2>&1 || true
+          echo "== www"; curl -sSI --max-time 20 http://www.hjernevaerket.dk | head -4 || true
+      - name: Pages API
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api repos/${{ github.repository }}/pages || true
+          gh api repos/${{ github.repository }}/pages/health || true
