@@ -27,6 +27,7 @@ Guidance for AI coding agents (Claude and others) working in this repository.
 - Pipeline: `npm ci` → `npm run check:images` → `npm run build` → `npm run check` → upload `dist/` with `actions/upload-pages-artifact` → `actions/deploy-pages` → `verify` job checks the live site.
 - Repository setting required: *Settings → Pages → Build and deployment → Source: GitHub Actions*.
 - Custom domain **hjernevaerket.dk**, served from the domain root. `astro.config.mjs` sets `site: 'https://hjernevaerket.dk'` and **no `base`**; `public/CNAME` contains the domain.
+  - HTTPS: the Let's Encrypt certificate is issued by GitHub and covers `hjernevaerket.dk` and `www.hjernevaerket.dk`; *Enforce HTTPS* is on. DNS is at Cloudflare and must stay **DNS only** (grey cloud): apex A/AAAA records to GitHub Pages' IPs, `www` CNAME to `psykorikke.github.io` (www redirects to the apex). If the certificate gets stuck, remove and re-add the custom domain under Settings → Pages.
   - Do not add a `base` path while the custom domain is in use — it breaks all CSS/JS/asset URLs (404s).
   - Still build internal links with `url()` from `src/config/site.ts` so a base path can be reintroduced in one place if hosting changes.
 - `scripts/check-site.mjs` (`npm run check`) verifies every internal link and asset. CI runs it on `dist/` before upload, and the `verify` job runs it against the live site after deploy — a red `verify` job means the deployed site is broken.
